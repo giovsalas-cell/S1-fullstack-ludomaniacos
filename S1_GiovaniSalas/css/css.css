@@ -1,0 +1,163 @@
+.bg-ludoteca {
+  background-color: brown;
+}
+
+.efecto-agrandar {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.efecto-agrandar:hover {
+  transform: scale(1.2);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+/*--------menu---------*/
+.nav-inicio a {
+  background-image: url("../img/juegos de mesa.jpg");
+}
+
+.nav-mesa a {
+  background-image: url("../img/juegos de mesa menu.jpg");
+}
+
+.nav-cartas a {
+  background-image: url("../img/maso-cartas-uno.jpg");
+}
+
+.nav-rol a {
+  background-image: url("../img/rol.jpeg");
+}
+
+.nav-cooperativo a {
+  background-image: url("../img/menu-coooperativo.jpg");
+}
+
+/* Estilos comunes para menu */
+.nav-inicio a,
+.nav-mesa a,
+.nav-cartas a,
+.nav-rol a,
+.nav-cooperativo a {
+  background-size: cover;
+  background-position: center;
+  color: white !important;
+  text-shadow: 1px 1px 4px black;
+  padding: 15px 25px;
+  border-radius: 8px;
+}
+.nav-inicio a,
+.nav-mesa a,
+.nav-cartas a,
+.nav-rol a,
+.nav-cooperativo a {
+  background-size: cover;
+  background-position: center;
+  color: white !important;
+  text-shadow: 1px 1px 4px black;
+  padding: 15px 25px;
+  border-radius: 0px;
+  width: 200px;
+  display: block;
+  text-align: center;
+}
+.navbar-nav {
+  gap: 0px !important;
+}
+/* --- CARRUSEL --- */
+.carousel {
+  width: 100vw;
+  margin-left: calc(-1 * (100vw - 100%) / 2);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+/* Máscara de sombreado inferior para las imágenes */
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%; /* Cubre la mitad inferior */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  z-index: 1; /* Se posiciona sobre la imagen pero bajo el texto */
+}
+
+/* Asegurar que el texto flote por encima de la máscara */
+.carousel-caption {
+  z-index: 2;
+}
+/* --- TARJETAS --- */
+.card-producto-img {
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+@media (min-width: 768px) {
+  .carousel-item img {
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/*animaciones avanzqdas*/
+@keyframes entradaSuave {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Se la aplicas a las tarjetas para que jueguen al cargar la página */
+.card {
+  animation: entradaSuave 0.8s ease-out;
+}
+/*--para que el el menu se extire el maximo en dipositivos movbiles--*/
+@media (max-width: 1300px) {
+  .navbar-nav {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  .nav-inicio a,
+  .nav-mesa a,
+  .nav-cartas a,
+  .nav-rol a,
+  .nav-cooperativo a {
+    width: 100%;
+    height: 60px;
+    padding: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0;
+  }
+}
