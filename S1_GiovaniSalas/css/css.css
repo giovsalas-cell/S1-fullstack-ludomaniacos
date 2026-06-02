@@ -161,3 +161,55 @@ body {
     border-radius: 0;
   }
 }
+
+/* 1 — El formulario aparece suavemente al cargar */
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#formularioRegistro {
+  animation: fadeInForm 0.6s ease-out;
+}
+
+/* 2 — El input se agranda levemente al hacer foco */
+.form-control {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+.form-control:focus {
+  transform: scale(1.02);
+}
+
+/* 3 — El botón tiene efecto al pasar el mouse */
+.btn-primary {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* 4 — Los mensajes de error/éxito aparecen con animación */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.text-danger,
+.text-success {
+  animation: aparecer 0.3s ease-out;
+}
