@@ -127,11 +127,11 @@ formulario.addEventListener("submit", (e) => {
     mensaje_nombre.textContent =
       "el nombre no puede estar vacio o menor de 3 caracteres ;(";
     nombre.classList.add("is-invalid");
-    formulario_correcto = false;
   } else {
     nombre.classList.add("is-valid");
     mensaje_nombre.textContent = "correcto :)";
     mensaje_nombre.className = "text-success";
+    formulario_correcto = true;
   }
   //fin-validacion nombre
 
@@ -140,11 +140,11 @@ formulario.addEventListener("submit", (e) => {
     mensaje_nombre_usuario.textContent =
       "el nombre de usuario no puede estar vacio ;(";
     nombre_usuario.classList.add("is-invalid");
-    formulario_correcto = false;
   } else {
     nombre_usuario.classList.add("is-valid");
     mensaje_nombre_usuario.textContent = "correcto :)";
     mensaje_nombre_usuario.className = "text-success";
+    formulario_correcto = true;
   }
   //fin-validacion nombre de usuario
 
@@ -153,23 +153,22 @@ formulario.addEventListener("submit", (e) => {
     mensaje_correo.textContent = "correcto :)";
     mensaje_correo.className = "text-success";
     correo_usuario.classList.add("is-valid");
+    formulario_correcto = true;
   } else {
     mensaje_correo.textContent = "el correo no es valido ;(";
     mensaje_correo.className = "text-danger";
     correo_usuario.classList.add("is-invalid");
-    formulario_correcto = false;
   }
   //validacion contraseña
   if (validarPassword(contraseña_usuario.value)) {
     mensaje_contraseña.textContent = "correcto :)";
     mensaje_contraseña.className = "text-success";
-
+    formulario_correcto = true;
     contraseña_usuario.classList.add("is-valid");
   } else {
     mensaje_contraseña.textContent = "la contraseña no es valida ;(";
     mensaje_contraseña.className = "text-danger";
     contraseña_usuario.classList.add("is-invalid");
-    formulario_correcto = false;
   }
   //fin-validacion contraseña
 
@@ -193,6 +192,7 @@ formulario.addEventListener("submit", (e) => {
     mensaje_confirmar_contraseña.className = "text-success";
     confirmar_contraseña.classList.remove("is-invalid");
     confirmar_contraseña.classList.add("is-valid");
+    formulario_correcto = true;
   }
 
   //fin confirmar contraseña
@@ -214,6 +214,7 @@ formulario.addEventListener("submit", (e) => {
     mensaje_fechaNacimiento.className = "text-success";
     fecha_nacimiento.classList.remove("is-invalid");
     fecha_nacimiento.classList.add("is-valid");
+    formulario_correcto = true;
   }
 
   //fin validacion fecha_nacimiento
