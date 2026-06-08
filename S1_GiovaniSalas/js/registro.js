@@ -1,3 +1,42 @@
+//registramos un nuevo usuario
+function registrarUsuario(nuevoUsuario) {
+  // Traemos la lista de usuarios del localStorage o empezamos con una vacía []
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+  //creando usuario admin
+  //se abre el arregllo usuarios
+  //const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  // se asigna el resultado de busqueda en la variable admin
+  const admin = usuarios.some((u) => u.rol === "admin");
+
+  //si no esta admin se crea uno
+  if (!admin) {
+    usuarios.push({ usuario: "admin", password: "admin", rol: "admin" });
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  }
+
+  //  Buscamos si el nombre ya existe (eliminamos el ".localStorage")
+  // Comparamos usando .toLowerCase() para evitar duplicados con mayúsculas
+  const existe = usuarios.some(
+    (u) => u.usuario.toLowerCase() === nuevoUsuario.usuario.toLowerCase(),
+  );
+
+  if (existe) {
+    alert("el usuario ya existe");
+    return;
+  }
+  // Guardamos el objeto directo en el arreglo (quitamos las llaves extras)
+  usuarios.push(nuevoUsuario);
+
+  //  Guardamos la lista actualizada en el localStorage
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  alert("usuario registrado con exito");
+
+  //  Redireccionamos al login (esta es la última acción, quitamos lo que venía abajo)
+  window.location.href = "login.html";
+}
+
 //validar correo
 function correoValido(correo) {
   const patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -92,6 +131,7 @@ formulario.addEventListener("submit", (e) => {
   const contraseña_usuario = document.getElementById("password");
   const confirmar_contraseña = document.getElementById("passwordRepeat");
   const fecha_nacimiento = document.getElementById("fechaNacimiento");
+  const direccion_despacho = document.getElementById("Direccion_despacho");
 
   //is invalid y is valid
   nombre.classList.remove("is-valid", "is-invalid");
@@ -127,11 +167,11 @@ formulario.addEventListener("submit", (e) => {
     mensaje_nombre.textContent =
       "el nombre no puede estar vacio o menor de 3 caracteres ;(";
     nombre.classList.add("is-invalid");
+    formulario_correcto = false;
   } else {
     nombre.classList.add("is-valid");
     mensaje_nombre.textContent = "correcto :)";
     mensaje_nombre.className = "text-success";
-    formulario_correcto = true;
   }
   //fin-validacion nombre
 
@@ -140,11 +180,11 @@ formulario.addEventListener("submit", (e) => {
     mensaje_nombre_usuario.textContent =
       "el nombre de usuario no puede estar vacio ;(";
     nombre_usuario.classList.add("is-invalid");
+    formulario_correcto = false;
   } else {
     nombre_usuario.classList.add("is-valid");
     mensaje_nombre_usuario.textContent = "correcto :)";
     mensaje_nombre_usuario.className = "text-success";
-    formulario_correcto = true;
   }
   //fin-validacion nombre de usuario
 
@@ -153,22 +193,23 @@ formulario.addEventListener("submit", (e) => {
     mensaje_correo.textContent = "correcto :)";
     mensaje_correo.className = "text-success";
     correo_usuario.classList.add("is-valid");
-    formulario_correcto = true;
   } else {
     mensaje_correo.textContent = "el correo no es valido ;(";
     mensaje_correo.className = "text-danger";
     correo_usuario.classList.add("is-invalid");
+    formulario_correcto = false;
   }
   //validacion contraseña
   if (validarPassword(contraseña_usuario.value)) {
     mensaje_contraseña.textContent = "correcto :)";
     mensaje_contraseña.className = "text-success";
-    formulario_correcto = true;
+
     contraseña_usuario.classList.add("is-valid");
   } else {
     mensaje_contraseña.textContent = "la contraseña no es valida ;(";
     mensaje_contraseña.className = "text-danger";
     contraseña_usuario.classList.add("is-invalid");
+    formulario_correcto = false;
   }
   //fin-validacion contraseña
 
@@ -192,7 +233,6 @@ formulario.addEventListener("submit", (e) => {
     mensaje_confirmar_contraseña.className = "text-success";
     confirmar_contraseña.classList.remove("is-invalid");
     confirmar_contraseña.classList.add("is-valid");
-    formulario_correcto = true;
   }
 
   //fin confirmar contraseña
@@ -214,7 +254,6 @@ formulario.addEventListener("submit", (e) => {
     mensaje_fechaNacimiento.className = "text-success";
     fecha_nacimiento.classList.remove("is-invalid");
     fecha_nacimiento.classList.add("is-valid");
-    formulario_correcto = true;
   }
 
   //fin validacion fecha_nacimiento
@@ -223,6 +262,17 @@ formulario.addEventListener("submit", (e) => {
     alert("inscrito");
     mensaje_general.textContent = "inscrito";
     mensaje_general.className = "text-success";
+
+    const nuevoUsuario = {
+      nombre: nombre.value.trim(),
+      usuario: nombre_usuario.value.trim(),
+      correo: correo_usuario.value.trim(),
+      password: contraseña_usuario.value.trim(),
+      fechaNacimiento: fecha_nacimiento.value.trim(),
+      direccion: direccion_despacho.value.trim(),
+      rol: "normal",
+    };
+    registrarUsuario(nuevoUsuario);
     limpiarFormulario();
   }
 });

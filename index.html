@@ -27,7 +27,7 @@
     </div>
 
     <!--navbar-->
-    <nav class="navbar navbar-expand-lg bg-light py-3 shadow-sm">
+    <!--<nav class="navbar navbar-expand-lg bg-light py-3 shadow-sm">
       <div class="container-fluid justify-content-center">
         <ul
           class="navbar-nav d-flex flex-column flex-md-row gap-3 gap-md-5 justify-content-center text-center m-0 p-0"
@@ -70,7 +70,94 @@
         </ul>
       </div>
     </nav>
+  -->
+    <nav class="navbar navbar-expand-lg bg-light py-3 shadow-sm">
+      <div class="container-fluid justify-content-center">
+        <ul
+          class="navbar-nav d-flex flex-column flex-md-row gap-3 gap-md-5 justify-content-center text-center m-0 p-0"
+        >
+          <li class="nav-item nav-mesa">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-mesa.html"
+              >JUEGOS DE MESA</a
+            >
+          </li>
+          <li class="nav-item nav-cartas">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-carta.html"
+              >CARTAS</a
+            >
+          </li>
+          <li class="nav-item nav-rol">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-rol.html"
+              >ROL</a
+            >
+          </li>
+          <li class="nav-item nav-cooperativo">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-cooperativo.html"
+              >COOPERATIVO</a
+            >
+          </li>
 
+          <!-- Sin sesión -->
+          <li class="nav-item" id="nav-login" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="login.html"
+              >INICIAR SESIÓN</a
+            >
+          </li>
+          <li class="nav-item" id="nav-registro" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="formulario.html"
+              >REGISTRARSE</a
+            >
+          </li>
+
+          <!-- Con sesión usuario normal -->
+          <li class="nav-item" id="nav-perfil" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="perfil.html"
+              >MI PERFIL</a
+            >
+          </li>
+          <li class="nav-item" id="nav-carrito" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="carrito.html"
+              >MI CARRITO</a
+            >
+          </li>
+
+          <!-- Con sesión admin -->
+          <li class="nav-item" id="nav-admin" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="admin.html"
+              >PANEL ADMIN</a
+            >
+          </li>
+
+          <!-- Con sesión (todos) -->
+          <li class="nav-item" id="nav-cerrar" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-danger fs-5"
+              href="#"
+              id="btn-cerrar-sesion"
+              >CERRAR SESIÓN</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
     <!--carrusel-->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
       <!-- Indicators/dots -->
@@ -186,9 +273,18 @@
                   >$39.990</span
                 >
 
-                <div class="d-flex justify-content-between align-items-center">
+                <div
+                  class="d-flex justify-content-between align-items-center gap-2"
+                >
                   <span class="fs-4 fw-bold text-success">$33991</span>
-                  <button class="btn btn-dark btn-sm">Añadir al carro</button>
+                  <button
+                    class="btn btn-dark btn-sm btn-agregar"
+                    data-nombre="Catan (Juego Base)"
+                    data-precio="33991"
+                    data-imagen="S1_GiovaniSalas/img/catan.avif"
+                  >
+                    Añadir al carro
+                  </button>
                 </div>
               </div>
             </div>
@@ -215,7 +311,15 @@
               >
                 <span class="text-decoration-none">precio normal</span>
                 <span class="fs-4 fw-bold text-success">$45.000</span>
-                <button class="btn btn-dark btn-sm">Añadir al carro</button>
+                <!-- Warhammer -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="Warhammer 40.000: Recruit Edition"
+                  data-precio="45000"
+                  data-imagen="S1_GiovaniSalas/img/de-que-trata-warhammer-40000.webp"
+                >
+                  Añadir al carro
+                </button>
               </div>
             </div>
           </div>
@@ -241,12 +345,22 @@
               >
                 <span class="text-decoration-none">precio normal</span>
                 <span class="fs-4 fw-bold text-success">$29.990</span>
-                <button class="btn btn-dark btn-sm">Añadir al carro</button>
+                <!-- Ajedrez -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="Ajedrez y Tableros Clásicos Premium"
+                  data-precio="29990"
+                  data-imagen="S1_GiovaniSalas/img/juegos de mesa.jpg"
+                >
+                  Añadir al carro
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="S1_GiovaniSalas/js/navbar.js"></script>
+    <script src="S1_GiovaniSalas/js/carrito.js"></script>
   </body>
 </html>

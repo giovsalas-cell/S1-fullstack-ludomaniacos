@@ -31,24 +31,9 @@
         <ul
           class="navbar-nav d-flex flex-column flex-md-row gap-3 gap-md-5 justify-content-center text-center m-0 p-0"
         >
-          <li class="nav-item">
-            <a
-              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
-              href="index.html"
-              >INICIO</a
-            >
-          </li>
-
-          <li class="nav-item">
-            <a
-              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
-              href="formulario.html"
-              >Registrate</a
-            >
-          </li>
           <li class="nav-item nav-mesa">
             <a
-              class="nav-link efecto-agrandar fw-medium text-dark fs-5 mesa"
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
               href="cat-mesa.html"
               >JUEGOS DE MESA</a
             >
@@ -72,6 +57,57 @@
               class="nav-link efecto-agrandar fw-medium text-dark fs-5"
               href="cat-cooperativo.html"
               >COOPERATIVO</a
+            >
+          </li>
+
+          <!-- Sin sesión -->
+          <li class="nav-item" id="nav-login" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="login.html"
+              >INICIAR SESIÓN</a
+            >
+          </li>
+          <li class="nav-item" id="nav-registro" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="formulario.html"
+              >REGISTRARSE</a
+            >
+          </li>
+
+          <!-- Con sesión usuario normal -->
+          <li class="nav-item" id="nav-perfil" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="perfil.html"
+              >MI PERFIL</a
+            >
+          </li>
+          <li class="nav-item" id="nav-carrito" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="carrito.html"
+              >MI CARRITO</a
+            >
+          </li>
+
+          <!-- Con sesión admin -->
+          <li class="nav-item" id="nav-admin" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="admin.html"
+              >PANEL ADMIN</a
+            >
+          </li>
+
+          <!-- Con sesión (todos) -->
+          <li class="nav-item" id="nav-cerrar" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-danger fs-5"
+              href="#"
+              id="btn-cerrar-sesion"
+              >CERRAR SESIÓN</a
             >
           </li>
         </ul>
@@ -112,7 +148,15 @@
                 ></span
                 ><span class="text-decoration-none">Sin descuento</span>
                 <span class="fs-4 fw-bold text-success">$33.991</span>
-                <button class="btn btn-dark btn-sm">Añadir</button>
+                <!-- Isla Prohibida -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="La isla Prohibida"
+                  data-precio="33991"
+                  data-imagen="S1_GiovaniSalas/img/cooperativo-isla-prohibida.jpg"
+                >
+                  Añadir
+                </button>
               </div>
             </div>
           </div>
@@ -144,7 +188,15 @@
                 ></span>
                 <span class="text-decoration-none">Sin descuento</span>
                 <span class="fs-4 fw-bold text-success">$39.990</span>
-                <button class="btn btn-dark btn-sm">Añadir</button>
+                <!-- Kitchen Rush -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="KITCHEN RUSH!"
+                  data-precio="39990"
+                  data-imagen="S1_GiovaniSalas/img/cooperativo-kitchen-rush.jpg"
+                >
+                  Añadir
+                </button>
               </div>
             </div>
           </div>
@@ -177,12 +229,22 @@
                 ></span>
                 <span class="text-decoration-none">Sin descuento</span>
                 <span class="fs-4 fw-bold text-success">$39.990</span>
-                <button class="btn btn-dark btn-sm">Añadir</button>
+                <!-- Zombicide -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="ZOMBICIDE"
+                  data-precio="39990"
+                  data-imagen="S1_GiovaniSalas/img/cooperativo-zonbiecide.webp"
+                >
+                  Añadir
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="S1_GiovaniSalas/js/navbar.js"></script>
+    <script src="S1_GiovaniSalas/js/carrito.js"></script>
   </body>
 </html>
