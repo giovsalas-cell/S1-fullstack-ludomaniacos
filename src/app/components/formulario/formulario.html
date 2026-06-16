@@ -1,0 +1,76 @@
+<main class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <h1 class="text-center mb-4">Formulario de registro</h1>
+
+      <form class="mx-auto mt-4">
+        <label class="form-label">Nombre</label>
+        <input
+          type="text"
+          [(ngModel)]="nombre"
+          name="nombre"
+          class="form-control"
+          placeholder="Ej: Cosme Fulanito"
+        />
+        <br />
+
+        <label class="form-label">Nombre de usuario</label>
+        <input
+          type="text"
+          [(ngModel)]="nombreUsuario"
+          name="nombreUsuario"
+          class="form-control"
+          placeholder="Ej: CosmeFulanito"
+        />
+        <br />
+
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          [(ngModel)]="correo"
+          name="correo"
+          class="form-control"
+          placeholder="Ej: ludomaniaco@gmail.com"
+        />
+        <br />
+
+        <label class="form-label">Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          placeholder="Entre 6 y 18 caracteres, mayúscula y un número"
+        />
+        <br />
+
+        <label class="form-label">Repetir Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="passwordRepeat"
+          name="passwordRepeat"
+          class="form-control"
+        />
+        <br />
+
+        <label class="form-label">Fecha de nacimiento</label>
+        <input
+          type="date"
+          [(ngModel)]="fechaNacimiento"
+          name="fechaNacimiento"
+          class="form-control"
+        />
+        <br />
+
+        <label class="form-label">
+          Dirección despacho <span class="text-muted">(opcional)</span>
+        </label>
+        <input type="text" [(ngModel)]="direccion" name="direccion" class="form-control" />
+        <br />
+
+        <button type="submit" class="btn btn-primary w-100">Inscribirme</button>
+        <button type="button" class="btn btn-secondary w-100 mt-2">Limpiar</button>
+      </form>
+    </div>
+  </div>
+</main>
