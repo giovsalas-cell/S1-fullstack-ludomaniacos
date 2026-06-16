@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ludomaniacos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="S1_GiovaniSalas/css/css.css" />
+  </head>
+  <body>
+    <div class="container-fluid p-5 text-white text-center bg-ludoteca">
+      <a href="index.html" class="text-decoration-none text-white">
+        <h1>LUDOMANIACOS</h1>
+        <h5>Tu tienda de juegos de mesa</h5>
+      </a>
+    </div>
+
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg bg-light py-3 shadow-sm">
+      <div class="container-fluid justify-content-center">
+        <ul
+          class="navbar-nav d-flex flex-column flex-md-row gap-3 gap-md-5 justify-content-center text-center m-0 p-0"
+        >
+          <li class="nav-item nav-mesa">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-mesa.html"
+              >JUEGOS DE MESA</a
+            >
+          </li>
+          <li class="nav-item nav-cartas">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-carta.html"
+              >CARTAS</a
+            >
+          </li>
+          <li class="nav-item nav-rol">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-rol.html"
+              >ROL</a
+            >
+          </li>
+          <li class="nav-item nav-cooperativo">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="cat-cooperativo.html"
+              >COOPERATIVO</a
+            >
+          </li>
+
+          <!-- Sin sesión -->
+          <li class="nav-item" id="nav-login" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="login.html"
+              >INICIAR SESIÓN</a
+            >
+          </li>
+          <li class="nav-item" id="nav-registro" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="formulario.html"
+              >REGISTRARSE</a
+            >
+          </li>
+
+          <!-- Con sesión usuario normal -->
+          <li class="nav-item" id="nav-perfil" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="perfil.html"
+              >MI PERFIL</a
+            >
+          </li>
+          <li class="nav-item" id="nav-carrito" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="carrito.html"
+              >MI CARRITO</a
+            >
+          </li>
+
+          <!-- Con sesión admin -->
+          <li class="nav-item" id="nav-admin" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-dark fs-5"
+              href="admin.html"
+              >PANEL ADMIN</a
+            >
+          </li>
+
+          <!-- Con sesión (todos) -->
+          <li class="nav-item" id="nav-cerrar" style="display: none">
+            <a
+              class="nav-link efecto-agrandar fw-medium text-danger fs-5"
+              href="#"
+              id="btn-cerrar-sesion"
+              >CERRAR SESIÓN</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- catalogo juegos de rrol-->
+
+    <div id="juegos-mesa" class="container my-5 pt-4">
+      <h3 class="border-bottom pb-2 fw-bold text-uppercase">
+        <i class="bi bi-dice-5"></i> Juegos de ROL
+      </h3>
+      <div class="row g-4 mt-2">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm position-relative">
+            <span
+              class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2 fs-6 z-3 shadow badge-oferta"
+            ></span>
+            <img
+              src="S1_GiovaniSalas/img/Rol-DragonQuest.webp"
+              class="card-img-top card-producto-img"
+              alt="Heroquest First Light"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">Heroquest First Light</h5>
+              <p class="card-text text-muted flex-grow-1">
+                Héroe, tu viaje comienza aquí! El juego de aventuras y fantasía
+                HeroQuest First Light sigue a 4 héroes a lo largo de misiones en
+                mazmorras mientras descubren tesoros, exploran ambientes
+                inmersivos y enfrentan a las malvadas fuerzas de Zargon, el
+                controlador del juego. Atraviesa un cambiante tablero de 2 caras
+                que evoluciona mientras recorres cada mazmorra.
+              </p>
+              <div
+                class="d-flex justify-content-between align-items-center mt-3"
+              >
+                <span class="text-decoration-none">Sin Descuento</span>
+                <span class="fs-4 fw-bold text-success">$33.991</span>
+                <!-- Heroquest -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="Heroquest First Light"
+                  data-precio="33991"
+                  data-imagen="S1_GiovaniSalas/img/Rol-DragonQuest.webp"
+                >
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm position-relative">
+            <span
+              class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2 fs-6 z-3 shadow badge-oferta"
+            ></span>
+            <img
+              src="S1_GiovaniSalas/img/rol-reterra.webp"
+              class="card-img-top card-producto-img"
+              alt="Mundo de Reterra"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">Mundo de Reterra</h5>
+              <p class="card-text text-muted flex-grow-1">
+                El juego Life in Reterra es un juego de (re)construcción de
+                comunidades! En un futuro no tan lejano, el mundo tal como lo
+                conocemos no es más que un gran recuerdo. Aunque ha cambiado
+                mucho, también lo hemos hecho nosotros, y usamos cualquier cosa
+                que encontremos para crear un nuevo estilo de vida. ¡Cada
+                jugador deberá construir su propia comunidad!
+              </p>
+              <div
+                class="d-flex justify-content-between align-items-center mt-3"
+              >
+                <span
+                  class="text-decoration-line-through text-muted small"
+                ></span>
+                <span class="text-decoration-none">precio normal</span>
+                <span class="fs-4 fw-bold text-success">$39.990</span>
+                <!-- Reterra -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="Mundo de Reterra"
+                  data-precio="39990"
+                  data-imagen="S1_GiovaniSalas/img/rol-reterra.webp"
+                >
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm position-relative">
+            <span
+              class="badge bg-danger position-absolute top-0 start-0 m-3 px-3 py-2 fs-6 z-3 shadow badge-oferta"
+            ></span>
+            <img
+              src="S1_GiovaniSalas/img/warhammercarousel.png"
+              class="card-img-top card-producto-img"
+              alt="Wharhammer 40,000"
+            />
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold">Wharhammer 40,000</h5>
+              <p class="card-text text-muted flex-grow-1">
+                Warhammer 40,000 es un juego de guerra ambientado en un futuro
+                distópico, en donde se mezclan elementos de la ciencia ficción
+                con elementos de la fantasía heroica. Fue creado en 1987 por
+                Rick Priestley y Andy Chambers como un complemento futurista de
+                Warhammer Fantasy Battle, compartiendo sus mecánicas de juego.
+              </p>
+              <div
+                class="d-flex justify-content-between align-items-center mt-3"
+              >
+                <span
+                  class="text-decoration-line-through text-muted small"
+                ></span>
+                <span class="text-decoration-none">precio normal</span>
+                <span class="fs-4 fw-bold text-success">$39.990</span>
+                <!-- Warhammer -->
+                <button
+                  class="btn btn-dark btn-sm btn-agregar"
+                  data-nombre="Warhammer 40,000"
+                  data-precio="39990"
+                  data-imagen="S1_GiovaniSalas/img/de-que-trata-warhammer-40000.webp"
+                >
+                  Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="S1_GiovaniSalas/js/navbar.js"></script>
+    <script src="S1_GiovaniSalas/js/carrito.js"></script>
+  </body>
+</html>
