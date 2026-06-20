@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { CarritoService } from '../../services/carrito.service';
 @Component({
   selector: 'app-categoria',
   imports: [],
@@ -129,11 +129,18 @@ export class Categoria implements OnInit {
     },
   ];
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private CarritoService: CarritoService,
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.tipo = params['tipo'];
     });
+  }
+  agregarAlCarro(producto: any) {
+    this.CarritoService.agregar(producto);
+    alert(producto.nombre + ' agregado al carrito ');
   }
 }

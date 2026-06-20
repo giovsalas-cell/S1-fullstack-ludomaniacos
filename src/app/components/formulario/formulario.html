@@ -3,73 +3,245 @@
     <div class="col-12 col-md-8 col-lg-6">
       <h1 class="text-center mb-4">Formulario de registro</h1>
 
-      <form class="mx-auto mt-4">
-        <label class="form-label">Nombre</label>
-        <input
-          type="text"
-          [(ngModel)]="nombre"
-          name="nombre"
-          class="form-control"
-          placeholder="Ej: Cosme Fulanito"
-        />
-        <br />
+      <form [formGroup]="formulario" (ngSubmit)="enviar()">
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input
+            type="text"
+            formControlName="nombre"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['nombre'].valid && formulario.controls['nombre'].touched
+            "
+            placeholder="Ej: Cosme Fulanito"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['nombre'].hasError('required') &&
+              formulario.controls['nombre'].touched
+            "
+          >
+            El nombre es obligatorio.
+          </div>
+        </div>
 
-        <label class="form-label">Nombre de usuario</label>
-        <input
-          type="text"
-          [(ngModel)]="nombreUsuario"
-          name="nombreUsuario"
-          class="form-control"
-          placeholder="Ej: CosmeFulanito"
-        />
-        <br />
+        <!-- Nombre de usuario -->
+        <div class="mb-3">
+          <label class="form-label">Nombre de usuario</label>
+          <input
+            type="text"
+            formControlName="nombreUsuario"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nombreUsuario'].invalid &&
+              formulario.controls['nombreUsuario'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['nombreUsuario'].valid &&
+              formulario.controls['nombreUsuario'].touched
+            "
+            placeholder="Ej: CosmeFulanito"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['nombreUsuario'].hasError('required') &&
+              formulario.controls['nombreUsuario'].touched
+            "
+          >
+            El nombre de usuario es obligatorio.
+          </div>
+        </div>
 
-        <label class="form-label">Email</label>
-        <input
-          type="email"
-          [(ngModel)]="correo"
-          name="correo"
-          class="form-control"
-          placeholder="Ej: ludomaniaco@gmail.com"
-        />
-        <br />
+        <!-- Email -->
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            formControlName="correo"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['correo'].invalid && formulario.controls['correo'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['correo'].valid && formulario.controls['correo'].touched
+            "
+            placeholder="Ej: ludomaniaco@gmail.com"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['correo'].hasError('required') &&
+              formulario.controls['correo'].touched
+            "
+          >
+            El email es obligatorio.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['correo'].hasError('email') &&
+              formulario.controls['correo'].touched
+            "
+          >
+            Ingresa un email válido.
+          </div>
+        </div>
 
-        <label class="form-label">Contraseña</label>
-        <input
-          type="password"
-          [(ngModel)]="password"
-          name="password"
-          class="form-control"
-          placeholder="Entre 6 y 18 caracteres, mayúscula y un número"
-        />
-        <br />
+        <!-- Contraseña -->
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['password'].invalid && formulario.controls['password'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['password'].valid && formulario.controls['password'].touched
+            "
+            placeholder="Entre 6 y 18 caracteres, mayúscula y número"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['password'].hasError('required') &&
+              formulario.controls['password'].touched
+            "
+          >
+            La contraseña es obligatoria.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['password'].hasError('minlength') &&
+              formulario.controls['password'].touched
+            "
+          >
+            Debe tener al menos 6 caracteres.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['password'].hasError('maxlength') &&
+              formulario.controls['password'].touched
+            "
+          >
+            No puede tener más de 18 caracteres.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['password'].hasError('sinMayuscula') &&
+              formulario.controls['password'].touched
+            "
+          >
+            Debe tener al menos una mayúscula.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['password'].hasError('sinNumero') &&
+              formulario.controls['password'].touched
+            "
+          >
+            Debe tener al menos un número.
+          </div>
+        </div>
 
-        <label class="form-label">Repetir Contraseña</label>
-        <input
-          type="password"
-          [(ngModel)]="passwordRepeat"
-          name="passwordRepeat"
-          class="form-control"
-        />
-        <br />
+        <!-- Confirmar contraseña -->
+        <div class="mb-3">
+          <label class="form-label">Repetir Contraseña</label>
+          <input
+            type="password"
+            formControlName="confirmarPassword"
+            class="form-control"
+            [class.is-invalid]="
+              (formulario.hasError('noCoinciden') ||
+                formulario.controls['confirmarPassword'].hasError('required')) &&
+              formulario.controls['confirmarPassword'].touched
+            "
+            [class.is-valid]="
+              !formulario.hasError('noCoinciden') &&
+              formulario.controls['confirmarPassword'].valid &&
+              formulario.controls['confirmarPassword'].touched
+            "
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['confirmarPassword'].hasError('required') &&
+              formulario.controls['confirmarPassword'].touched
+            "
+          >
+            Debes repetir la contraseña.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.hasError('noCoinciden') && formulario.controls['confirmarPassword'].touched
+            "
+          >
+            Las contraseñas no coinciden.
+          </div>
+        </div>
 
-        <label class="form-label">Fecha de nacimiento</label>
-        <input
-          type="date"
-          [(ngModel)]="fechaNacimiento"
-          name="fechaNacimiento"
-          class="form-control"
-        />
-        <br />
+        <!-- Fecha de nacimiento -->
+        <div class="mb-3">
+          <label class="form-label">Fecha de nacimiento</label>
+          <input
+            type="date"
+            formControlName="fechaNacimiento"
+            class="form-control"
+            [max]="hoy"
+            [class.is-invalid]="
+              formulario.controls['fechaNacimiento'].invalid &&
+              formulario.controls['fechaNacimiento'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['fechaNacimiento'].valid &&
+              formulario.controls['fechaNacimiento'].touched
+            "
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['fechaNacimiento'].hasError('required') &&
+              formulario.controls['fechaNacimiento'].touched
+            "
+          >
+            La fecha de nacimiento es obligatoria.
+          </div>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              formulario.controls['fechaNacimiento'].hasError('menorDe13') &&
+              formulario.controls['fechaNacimiento'].touched
+            "
+          >
+            Debes tener al menos 13 años para registrarte.
+          </div>
+        </div>
 
-        <label class="form-label">
-          Dirección despacho <span class="text-muted">(opcional)</span>
-        </label>
-        <input type="text" [(ngModel)]="direccion" name="direccion" class="form-control" />
-        <br />
+        <!-- Dirección (opcional) -->
+        <div class="mb-3">
+          <label class="form-label">
+            Dirección despacho <span class="text-muted">(opcional)</span>
+          </label>
+          <input type="text" formControlName="direccion" class="form-control" />
+        </div>
 
+        <!-- Botones -->
         <button type="submit" class="btn btn-primary w-100">Inscribirme</button>
-        <button type="button" class="btn btn-secondary w-100 mt-2">Limpiar</button>
+        <button type="button" class="btn btn-secondary w-100 mt-2" (click)="limpiar()">
+          Limpiar
+        </button>
       </form>
     </div>
   </div>
