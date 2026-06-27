@@ -1,0 +1,67 @@
+<main class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <h1 class="text-center mb-4">Iniciar sesión</h1>
+
+      <form [formGroup]="formulario" (ngSubmit)="ingresar()">
+        <!-- Nombre de usuario -->
+        <div class="mb-3">
+          <label class="form-label">Nombre de usuario</label>
+          <input
+            type="text"
+            formControlName="nombreUsuario"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nombreUsuario'].invalid &&
+              formulario.controls['nombreUsuario'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['nombreUsuario'].valid &&
+              formulario.controls['nombreUsuario'].touched
+            "
+            placeholder="Tu nombre de usuario"
+          />
+          @if (
+            formulario.controls['nombreUsuario'].hasError('required') &&
+            formulario.controls['nombreUsuario'].touched
+          ) {
+            <div class="invalid-feedback d-block">El nombre de usuario es obligatorio.</div>
+          }
+        </div>
+
+        <!-- Contraseña -->
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['password'].invalid && formulario.controls['password'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['password'].valid && formulario.controls['password'].touched
+            "
+            placeholder="Tu contraseña"
+          />
+          @if (
+            formulario.controls['password'].hasError('required') &&
+            formulario.controls['password'].touched
+          ) {
+            <div class="invalid-feedback d-block">La contraseña es obligatoria.</div>
+          }
+        </div>
+
+        <!-- Error de login -->
+        @if (errorLogin) {
+          <div class="alert alert-danger">Nombre de usuario o contraseña incorrectos.</div>
+        }
+
+        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+      </form>
+      <button type="button" class="btn btn-link w-100 mt-2" (click)="irARecuperar()">
+        ¿Olvidaste tu contraseña?
+      </button>
+    </div>
+  </div>
+</main>

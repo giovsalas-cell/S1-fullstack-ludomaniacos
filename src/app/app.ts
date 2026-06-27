@@ -1,5 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
+import { Autenticar } from './services/autenticar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,13 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   styleUrl: './app.css',
 })
 export class App {
-  protected readonly title = signal('app.ludomaniacos');
+  constructor(
+    public autenticar: Autenticar,
+    private router: Router,
+  ) {}
+
+  cerrarSesion() {
+    this.autenticar.logout();
+    this.router.navigate(['/']);
+  }
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Autenticar } from '../../services/autenticar';
+import { Router } from '@angular/router';
 import {
   AbstractControl,
   FormBuilder,
@@ -58,7 +60,11 @@ export class Formulario {
   formulario: FormGroup;
   hoy = new Date().toISOString().split('T')[0];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private autenticar: Autenticar,
+    private router: Router,
+  ) {
     this.formulario = this.fb.group(
       {
         nombre: ['', Validators.required],
@@ -82,16 +88,26 @@ export class Formulario {
     );
   }
 
+  mensajeError: string = '';
+
   enviar() {
     if (this.formulario.invalid) {
       this.formulario.markAllAsTouched();
       return;
     }
-    alert('Registro exitoso');
-    console.log(this.formulario.value);
+
+    const exito = this.autenticar.registrar(this.formulario.value);
+
+    if (exito) {
+      alert('Registro exitoso! Ahora puedes iniciar sesión.');
+      this.router.navigate(['/login']);
+    } else {
+      this.mensajeError = 'El correo ya está registrado.';
+    }
   }
 
   limpiar() {
     this.formulario.reset();
+    this.mensajeError = '';
   }
 }

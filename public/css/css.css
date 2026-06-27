@@ -18,23 +18,23 @@ body {
 }
 /*--------menu---------*/
 .nav-inicio a {
-  background-image: url("../img/juegos de mesa.jpg");
+  background-image: url('/img/juegos de mesa.jpg');
 }
 
 .nav-mesa a {
-  background-image: url("../img/juegos de mesa menu.jpg");
+  background-image: url('/img/juegos de mesa menu.jpg');
 }
 
 .nav-cartas a {
-  background-image: url("../img/maso-cartas-uno.jpg");
+  background-image: url('/img/maso-cartas-uno.jpg');
 }
 
 .nav-rol a {
-  background-image: url("../img/rol.jpeg");
+  background-image: url('/img/rol.jpeg');
 }
 
 .nav-cooperativo a {
-  background-image: url("../img/menu-coooperativo.jpg");
+  background-image: url('/img/menu-coooperativo.jpg');
 }
 
 /* Estilos comunes para menu */
@@ -83,7 +83,7 @@ body {
 }
 /* Máscara de sombreado inferior para las imágenes */
 .carousel-item::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;

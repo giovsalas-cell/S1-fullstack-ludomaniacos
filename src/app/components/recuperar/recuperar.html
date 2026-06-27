@@ -1,0 +1,126 @@
+<main class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <h1 class="text-center mb-4">Recuperar contraseña</h1>
+
+      <form [formGroup]="formulario" (ngSubmit)="recuperar()">
+        <!-- Correo -->
+        <div class="mb-3">
+          <label class="form-label">Correo registrado</label>
+          <input
+            type="email"
+            formControlName="correo"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['correo'].invalid && formulario.controls['correo'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['correo'].valid && formulario.controls['correo'].touched
+            "
+            placeholder="correo@ejemplo.com"
+          />
+          @if (
+            formulario.controls['correo'].hasError('required') &&
+            formulario.controls['correo'].touched
+          ) {
+            <div class="invalid-feedback d-block">El correo es obligatorio.</div>
+          }
+          @if (
+            formulario.controls['correo'].hasError('email') && formulario.controls['correo'].touched
+          ) {
+            <div class="invalid-feedback d-block">El formato del correo no es válido.</div>
+          }
+        </div>
+
+        <!-- Nueva contraseña -->
+        <div class="mb-3">
+          <label class="form-label">Nueva contraseña</label>
+          <input
+            type="password"
+            formControlName="nuevaPassword"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nuevaPassword'].invalid &&
+              formulario.controls['nuevaPassword'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['nuevaPassword'].valid &&
+              formulario.controls['nuevaPassword'].touched
+            "
+            placeholder="Entre 6 y 18 caracteres"
+          />
+          @if (
+            formulario.controls['nuevaPassword'].hasError('required') &&
+            formulario.controls['nuevaPassword'].touched
+          ) {
+            <div class="invalid-feedback d-block">La contraseña es obligatoria.</div>
+          }
+          @if (
+            formulario.controls['nuevaPassword'].hasError('minlength') &&
+            formulario.controls['nuevaPassword'].touched
+          ) {
+            <div class="invalid-feedback d-block">Mínimo 6 caracteres.</div>
+          }
+          @if (
+            formulario.controls['nuevaPassword'].hasError('sinMayuscula') &&
+            formulario.controls['nuevaPassword'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos una mayúscula.</div>
+          }
+          @if (
+            formulario.controls['nuevaPassword'].hasError('sinNumero') &&
+            formulario.controls['nuevaPassword'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos un número.</div>
+          }
+        </div>
+
+        <!-- Confirmar contraseña -->
+        <div class="mb-3">
+          <label class="form-label">Confirmar contraseña</label>
+          <input
+            type="password"
+            formControlName="confirmarPassword"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['confirmarPassword'].invalid &&
+              formulario.controls['confirmarPassword'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['confirmarPassword'].valid &&
+              formulario.controls['confirmarPassword'].touched
+            "
+            placeholder="Repite la nueva contraseña"
+          />
+          @if (
+            formulario.controls['confirmarPassword'].hasError('required') &&
+            formulario.controls['confirmarPassword'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debes confirmar la contraseña.</div>
+          }
+          @if (
+            formulario.errors?.['noCoinciden'] && formulario.controls['confirmarPassword'].touched
+          ) {
+            <div class="invalid-feedback d-block">Las contraseñas no coinciden.</div>
+          }
+        </div>
+
+        <!-- Mensajes -->
+        @if (mensajeError) {
+          <div class="alert alert-danger">{{ mensajeError }}</div>
+        }
+        @if (mensajeExito) {
+          <div class="alert alert-success">{{ mensajeExito }}</div>
+        }
+
+        <button type="submit" class="btn btn-primary w-100">Actualizar contraseña</button>
+        <button type="button" class="btn btn-secondary w-100 mt-2" (click)="limpiar()">
+          Limpiar
+        </button>
+      </form>
+      <button type="button" class="btn btn-link w-100 mt-2" (click)="irALogin()">
+        Volver al login
+      </button>
+    </div>
+  </div>
+</main>
