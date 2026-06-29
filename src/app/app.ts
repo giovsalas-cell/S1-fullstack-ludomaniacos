@@ -19,4 +19,7 @@ export class App {
     this.autenticar.logout();
     this.router.navigate(['/']);
   }
+  irAPerfil() {
+    this.router.navigate(['/perfil']);
+  }
 }

@@ -20,7 +20,7 @@ export class Autenticar {
       nombre: 'Administrador',
       nombreUsuario: 'admin',
       correo: 'admin@ludomaniacos.cl',
-      password: 'Admin',
+      password: 'admin',
       fechaNacimiento: '1990-01-01',
       direccion: 'Enrique segoviano',
       rol: 'admin',
@@ -65,7 +65,7 @@ export class Autenticar {
     this.usuarios.push({
       nombre: datos.nombre,
       nombreUsuario: datos.nombreUsuario,
-      correo: datos.correo, // ← correo no email
+      correo: datos.correo, //  correo no email
       password: datos.password,
       fechaNacimiento: datos.fechaNacimiento,
       direccion: datos.direccion,

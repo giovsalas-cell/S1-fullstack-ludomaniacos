@@ -74,43 +74,6 @@
           }
         </div>
 
-        <!-- Nueva contraseña (opcional) -->
-        <div class="mb-3">
-          <label class="form-label"
-            >Nueva contraseña <span class="text-muted">(opcional)</span></label
-          >
-          <input
-            type="password"
-            formControlName="password"
-            class="form-control"
-            [class.is-invalid]="
-              formulario.controls['password'].invalid && formulario.controls['password'].touched
-            "
-            [class.is-valid]="
-              formulario.controls['password'].valid && formulario.controls['password'].touched
-            "
-            placeholder="Dejar vacío para no cambiar"
-          />
-          @if (
-            formulario.controls['password'].hasError('minlength') &&
-            formulario.controls['password'].touched
-          ) {
-            <div class="invalid-feedback d-block">Mínimo 6 caracteres.</div>
-          }
-          @if (
-            formulario.controls['password'].hasError('sinMayuscula') &&
-            formulario.controls['password'].touched
-          ) {
-            <div class="invalid-feedback d-block">Debe tener al menos una mayúscula.</div>
-          }
-          @if (
-            formulario.controls['password'].hasError('sinNumero') &&
-            formulario.controls['password'].touched
-          ) {
-            <div class="invalid-feedback d-block">Debe tener al menos un número.</div>
-          }
-        </div>
-
         <!-- Dirección -->
         <div class="mb-3">
           <label class="form-label"

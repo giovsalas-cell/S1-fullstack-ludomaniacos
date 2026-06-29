@@ -7,6 +7,7 @@ import { Login } from './components/login/login';
 import { Admin } from './components/admin/admin';
 import { adminGuard } from './guards/auth-guard';
 import { Recuperar } from './components/recuperar/recuperar';
+import { Perfil } from './components/perfil/perfil';
 
 export const routes: Routes = [
   { path: '', component: Inicio },
@@ -16,4 +17,5 @@ export const routes: Routes = [
   { path: 'login', component: Login },
   { path: 'admin', component: Admin, canActivate: [adminGuard] },
   { path: 'recuperar', component: Recuperar },
+  { path: 'perfil', component: Perfil },
 ];
