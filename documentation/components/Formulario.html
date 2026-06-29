@@ -1,0 +1,1069 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app.ludomaniacos documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">app.ludomaniacos documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Formulario</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app/components/formulario/formulario.ts</code>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#api" class="nav-link"
+                role="tab" id="api-tab" data-bs-toggle="tab" data-link="api">API</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-formulario</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                        <div>        <code><a href="https://angular.dev/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+</div>
+                        <div>        <code><a href="https://angular.dev/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./formulario.css</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./formulario.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./formulario.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="https://angular.dev/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="https://angular.dev/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+</div>
+
+    <div class="tab-pane fade " id="api">    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#formulario" >formulario</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#hoy" >hoy</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#mensajeError" >mensajeError</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#enviar" >enviar</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#limpiar" >limpiar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: <a href="https://angular.dev/api/forms/FormBuilder" target="_blank">FormBuilder</a>, autenticar: <a href="../injectables/Autenticar.html" target="_self">Autenticar</a>, router: <a href="https://angular.dev/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/formulario/formulario.ts:61</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.dev/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>autenticar</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Autenticar.html" target="_self" >Autenticar</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.dev/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviar"></a>
+                    <span class="name">
+                        <span ><b>enviar</b></span>
+                        <a href="#enviar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enviar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/components/formulario/formulario.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="limpiar"></a>
+                    <span class="name">
+                        <span ><b>limpiar</b></span>
+                        <a href="#limpiar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>limpiar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/components/formulario/formulario.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formulario"></a>
+                    <span class="name">
+                        <span ><b>formulario</b></span>
+                        <a href="#formulario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.dev/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/components/formulario/formulario.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hoy"></a>
+                    <span class="name">
+                        <span ><b>hoy</b></span>
+                        <a href="#hoy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Date().toISOString().split(&#x27;T&#x27;)[0]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/components/formulario/formulario.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mensajeError"></a>
+                    <span class="name">
+                        <span ><b>mensajeError</b></span>
+                        <a href="#mensajeError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/components/formulario/formulario.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Autenticar } from &#x27;../../services/autenticar&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  Validators,
+} from &#x27;@angular/forms&#x27;;
+
+// Funciones validadoras
+
+function tieneMayuscula(control: AbstractControl): ValidationErrors | null {
+  if (/[A-Z]/.test(control.value)) {
+    return null;
+  }
+  return { sinMayuscula: true };
+}
+
+function tieneNumero(control: AbstractControl): ValidationErrors | null {
+  if (/[0-9]/.test(control.value)) {
+    return null;
+  }
+  return { sinNumero: true };
+}
+
+function verificarEdad(control: AbstractControl): ValidationErrors | null {
+  if (!control.value) return { required: true };
+  const hoy &#x3D; new Date();
+  const nacimiento &#x3D; new Date(control.value);
+  const edad &#x3D; hoy.getFullYear() - nacimiento.getFullYear();
+  if (edad &gt;&#x3D; 13) {
+    return null;
+  }
+  return { menorDe13: true };
+}
+
+function passwordsIguales(control: AbstractControl): ValidationErrors | null {
+  const password &#x3D; control.get(&#x27;password&#x27;)?.value;
+  const confirmar &#x3D; control.get(&#x27;confirmarPassword&#x27;)?.value;
+  if (password &#x3D;&#x3D;&#x3D; confirmar) {
+    return null;
+  }
+  return { noCoinciden: true };
+}
+
+// Componente
+
+@Component({
+  selector: &#x27;app-formulario&#x27;,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: &#x27;./formulario.html&#x27;,
+  styleUrl: &#x27;./formulario.css&#x27;,
+})
+export class Formulario {
+  formulario: FormGroup;
+  hoy &#x3D; new Date().toISOString().split(&#x27;T&#x27;)[0];
+
+  constructor(
+    private fb: FormBuilder,
+    private autenticar: Autenticar,
+    private router: Router,
+  ) {
+    this.formulario &#x3D; this.fb.group(
+      {
+        nombre: [&#x27;&#x27;, Validators.required],
+        nombreUsuario: [&#x27;&#x27;, Validators.required],
+        correo: [&#x27;&#x27;, [Validators.required, Validators.email]],
+        password: [
+          &#x27;&#x27;,
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(18),
+            tieneMayuscula,
+            tieneNumero,
+          ],
+        ],
+        confirmarPassword: [&#x27;&#x27;, Validators.required],
+        fechaNacimiento: [&#x27;&#x27;, [Validators.required, verificarEdad]],
+        direccion: [&#x27;&#x27;],
+      },
+      { validators: passwordsIguales },
+    );
+  }
+
+  mensajeError: string &#x3D; &#x27;&#x27;;
+
+  enviar() {
+    if (this.formulario.invalid) {
+      this.formulario.markAllAsTouched();
+      return;
+    }
+
+    const exito &#x3D; this.autenticar.registrar(this.formulario.value);
+
+    if (exito) {
+      alert(&#x27;Registro exitoso! Ahora puedes iniciar sesión.&#x27;);
+      this.router.navigate([&#x27;/login&#x27;]);
+    } else {
+      this.mensajeError &#x3D; &#x27;El correo ya está registrado.&#x27;;
+    }
+  }
+
+  limpiar() {
+    this.formulario.reset();
+    this.mensajeError &#x3D; &#x27;&#x27;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;main class&#x3D;&quot;container mt-4&quot;&gt;
+  &lt;div class&#x3D;&quot;row justify-content-center&quot;&gt;
+    &lt;div class&#x3D;&quot;col-12 col-md-8 col-lg-6&quot;&gt;
+      &lt;h1 class&#x3D;&quot;text-center mb-4&quot;&gt;Formulario de registro&lt;/h1&gt;
+
+      &lt;form [formGroup]&#x3D;&quot;formulario&quot; (ngSubmit)&#x3D;&quot;enviar()&quot;&gt;
+        &lt;!-- Nombre --&gt;
+        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;Nombre&lt;/label&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            formControlName&#x3D;&quot;nombre&quot;
+            class&#x3D;&quot;form-control&quot;
+            [class.is-invalid]&#x3D;&quot;
+              formulario.controls[&#x27;nombre&#x27;].invalid &amp;&amp; formulario.controls[&#x27;nombre&#x27;].touched
+            &quot;
+            [class.is-valid]&#x3D;&quot;
+              formulario.controls[&#x27;nombre&#x27;].valid &amp;&amp; formulario.controls[&#x27;nombre&#x27;].touched
+            &quot;
+            placeholder&#x3D;&quot;Ej: Cosme Fulanito&quot;
+          /&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;nombre&#x27;].hasError(&#x27;required&#x27;) &amp;&amp;
+              formulario.controls[&#x27;nombre&#x27;].touched
+            &quot;
+          &gt;
+            El nombre es obligatorio.
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Nombre de usuario --&gt;
+        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;Nombre de usuario&lt;/label&gt;
+          &lt;input
+            type&#x3D;&quot;text&quot;
+            formControlName&#x3D;&quot;nombreUsuario&quot;
+            class&#x3D;&quot;form-control&quot;
+            [class.is-invalid]&#x3D;&quot;
+              formulario.controls[&#x27;nombreUsuario&#x27;].invalid &amp;&amp;
+              formulario.controls[&#x27;nombreUsuario&#x27;].touched
+            &quot;
+            [class.is-valid]&#x3D;&quot;
+              formulario.controls[&#x27;nombreUsuario&#x27;].valid &amp;&amp;
+              formulario.controls[&#x27;nombreUsuario&#x27;].touched
+            &quot;
+            placeholder&#x3D;&quot;Ej: CosmeFulanito&quot;
+          /&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;nombreUsuario&#x27;].hasError(&#x27;required&#x27;) &amp;&amp;
+              formulario.controls[&#x27;nombreUsuario&#x27;].touched
+            &quot;
+          &gt;
+            El nombre de usuario es obligatorio.
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Email --&gt;
+        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;Email&lt;/label&gt;
+          &lt;input
+            type&#x3D;&quot;email&quot;
+            formControlName&#x3D;&quot;correo&quot;
+            class&#x3D;&quot;form-control&quot;
+            [class.is-invalid]&#x3D;&quot;
+              formulario.controls[&#x27;correo&#x27;].invalid &amp;&amp; formulario.controls[&#x27;correo&#x27;].touched
+            &quot;
+            [class.is-valid]&#x3D;&quot;
+              formulario.controls[&#x27;correo&#x27;].valid &amp;&amp; formulario.controls[&#x27;correo&#x27;].touched
+            &quot;
+            placeholder&#x3D;&quot;Ej: ludomaniaco@gmail.com&quot;
+          /&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;correo&#x27;].hasError(&#x27;required&#x27;) &amp;&amp;
+              formulario.controls[&#x27;correo&#x27;].touched
+            &quot;
+          &gt;
+            El email es obligatorio.
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;correo&#x27;].hasError(&#x27;email&#x27;) &amp;&amp;
+              formulario.controls[&#x27;correo&#x27;].touched
+            &quot;
+          &gt;
+            Ingresa un email válido.
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Contraseña --&gt;
+        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;Contraseña&lt;/label&gt;
+          &lt;input
+            type&#x3D;&quot;password&quot;
+            formControlName&#x3D;&quot;password&quot;
+            class&#x3D;&quot;form-control&quot;
+            [class.is-invalid]&#x3D;&quot;
+              formulario.controls[&#x27;password&#x27;].invalid &amp;&amp; formulario.controls[&#x27;password&#x27;].touched
+            &quot;
+            [class.is-valid]&#x3D;&quot;
+              formulario.controls[&#x27;password&#x27;].valid &amp;&amp; formulario.controls[&#x27;password&#x27;].touched
+            &quot;
+            placeholder&#x3D;&quot;Entre 6 y 18 caracteres, mayúscula y número&quot;
+          /&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;password&#x27;].hasError(&#x27;required&#x27;) &amp;&amp;
+              formulario.controls[&#x27;password&#x27;].touched
+            &quot;
+          &gt;
+            La contraseña es obligatoria.
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;password&#x27;].hasError(&#x27;minlength&#x27;) &amp;&amp;
+              formulario.controls[&#x27;password&#x27;].touched
+            &quot;
+          &gt;
+            Debe tener al menos 6 caracteres.
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;password&#x27;].hasError(&#x27;maxlength&#x27;) &amp;&amp;
+              formulario.controls[&#x27;password&#x27;].touched
+            &quot;
+          &gt;
+            No puede tener más de 18 caracteres.
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;password&#x27;].hasError(&#x27;sinMayuscula&#x27;) &amp;&amp;
+              formulario.controls[&#x27;password&#x27;].touched
+            &quot;
+          &gt;
+            Debe tener al menos una mayúscula.
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;password&#x27;].hasError(&#x27;sinNumero&#x27;) &amp;&amp;
+              formulario.controls[&#x27;password&#x27;].touched
+            &quot;
+          &gt;
+            Debe tener al menos un número.
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Confirmar contraseña --&gt;
+        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;Repetir Contraseña&lt;/label&gt;
+          &lt;input
+            type&#x3D;&quot;password&quot;
+            formControlName&#x3D;&quot;confirmarPassword&quot;
+            class&#x3D;&quot;form-control&quot;
+            [class.is-invalid]&#x3D;&quot;
+              (formulario.hasError(&#x27;noCoinciden&#x27;) ||
+                formulario.controls[&#x27;confirmarPassword&#x27;].hasError(&#x27;required&#x27;)) &amp;&amp;
+              formulario.controls[&#x27;confirmarPassword&#x27;].touched
+            &quot;
+            [class.is-valid]&#x3D;&quot;
+              !formulario.hasError(&#x27;noCoinciden&#x27;) &amp;&amp;
+              formulario.controls[&#x27;confirmarPassword&#x27;].valid &amp;&amp;
+              formulario.controls[&#x27;confirmarPassword&#x27;].touched
+            &quot;
+          /&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;confirmarPassword&#x27;].hasError(&#x27;required&#x27;) &amp;&amp;
+              formulario.controls[&#x27;confirmarPassword&#x27;].touched
+            &quot;
+          &gt;
+            Debes repetir la contraseña.
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.hasError(&#x27;noCoinciden&#x27;) &amp;&amp; formulario.controls[&#x27;confirmarPassword&#x27;].touched
+            &quot;
+          &gt;
+            Las contraseñas no coinciden.
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Fecha de nacimiento --&gt;
+        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;Fecha de nacimiento&lt;/label&gt;
+          &lt;input
+            type&#x3D;&quot;date&quot;
+            formControlName&#x3D;&quot;fechaNacimiento&quot;
+            class&#x3D;&quot;form-control&quot;
+            [max]&#x3D;&quot;hoy&quot;
+            [class.is-invalid]&#x3D;&quot;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].invalid &amp;&amp;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].touched
+            &quot;
+            [class.is-valid]&#x3D;&quot;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].valid &amp;&amp;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].touched
+            &quot;
+          /&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].hasError(&#x27;required&#x27;) &amp;&amp;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].touched
+            &quot;
+          &gt;
+            La fecha de nacimiento es obligatoria.
+          &lt;/div&gt;
+          &lt;div
+            class&#x3D;&quot;invalid-feedback&quot;
+            *ngIf&#x3D;&quot;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].hasError(&#x27;menorDe13&#x27;) &amp;&amp;
+              formulario.controls[&#x27;fechaNacimiento&#x27;].touched
+            &quot;
+          &gt;
+            Debes tener al menos 13 años para registrarte.
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Dirección (opcional) --&gt;
+        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;
+            Dirección despacho &lt;span class&#x3D;&quot;text-muted&quot;&gt;(opcional)&lt;/span&gt;
+          &lt;/label&gt;
+          &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;direccion&quot; class&#x3D;&quot;form-control&quot; /&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Botones --&gt;
+        &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary w-100&quot;&gt;Inscribirme&lt;/button&gt;
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary w-100 mt-2&quot; (click)&#x3D;&quot;limpiar()&quot;&gt;
+          Limpiar
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./formulario.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><main class="container mt-4">  <div class="row justify-content-center">    <div class="col-12 col-md-8 col-lg-6">      <h1 class="text-center mb-4">Formulario de registro</h1>      <form [formGroup]="formulario" (ngSubmit)="enviar()">        <!-- Nombre -->        <div class="mb-3">          <label class="form-label">Nombre</label>          <input            type="text"            formControlName="nombre"            class="form-control"            [class.is-invalid]="              formulario.controls[\'nombre\'].invalid && formulario.controls[\'nombre\'].touched            "            [class.is-valid]="              formulario.controls[\'nombre\'].valid && formulario.controls[\'nombre\'].touched            "            placeholder="Ej: Cosme Fulanito"          />          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'nombre\'].hasError(\'required\') &&              formulario.controls[\'nombre\'].touched            "          >            El nombre es obligatorio.          </div>        </div>        <!-- Nombre de usuario -->        <div class="mb-3">          <label class="form-label">Nombre de usuario</label>          <input            type="text"            formControlName="nombreUsuario"            class="form-control"            [class.is-invalid]="              formulario.controls[\'nombreUsuario\'].invalid &&              formulario.controls[\'nombreUsuario\'].touched            "            [class.is-valid]="              formulario.controls[\'nombreUsuario\'].valid &&              formulario.controls[\'nombreUsuario\'].touched            "            placeholder="Ej: CosmeFulanito"          />          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'nombreUsuario\'].hasError(\'required\') &&              formulario.controls[\'nombreUsuario\'].touched            "          >            El nombre de usuario es obligatorio.          </div>        </div>        <!-- Email -->        <div class="mb-3">          <label class="form-label">Email</label>          <input            type="email"            formControlName="correo"            class="form-control"            [class.is-invalid]="              formulario.controls[\'correo\'].invalid && formulario.controls[\'correo\'].touched            "            [class.is-valid]="              formulario.controls[\'correo\'].valid && formulario.controls[\'correo\'].touched            "            placeholder="Ej: ludomaniaco@gmail.com"          />          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'correo\'].hasError(\'required\') &&              formulario.controls[\'correo\'].touched            "          >            El email es obligatorio.          </div>          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'correo\'].hasError(\'email\') &&              formulario.controls[\'correo\'].touched            "          >            Ingresa un email válido.          </div>        </div>        <!-- Contraseña -->        <div class="mb-3">          <label class="form-label">Contraseña</label>          <input            type="password"            formControlName="password"            class="form-control"            [class.is-invalid]="              formulario.controls[\'password\'].invalid && formulario.controls[\'password\'].touched            "            [class.is-valid]="              formulario.controls[\'password\'].valid && formulario.controls[\'password\'].touched            "            placeholder="Entre 6 y 18 caracteres, mayúscula y número"          />          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'password\'].hasError(\'required\') &&              formulario.controls[\'password\'].touched            "          >            La contraseña es obligatoria.          </div>          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'password\'].hasError(\'minlength\') &&              formulario.controls[\'password\'].touched            "          >            Debe tener al menos 6 caracteres.          </div>          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'password\'].hasError(\'maxlength\') &&              formulario.controls[\'password\'].touched            "          >            No puede tener más de 18 caracteres.          </div>          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'password\'].hasError(\'sinMayuscula\') &&              formulario.controls[\'password\'].touched            "          >            Debe tener al menos una mayúscula.          </div>          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'password\'].hasError(\'sinNumero\') &&              formulario.controls[\'password\'].touched            "          >            Debe tener al menos un número.          </div>        </div>        <!-- Confirmar contraseña -->        <div class="mb-3">          <label class="form-label">Repetir Contraseña</label>          <input            type="password"            formControlName="confirmarPassword"            class="form-control"            [class.is-invalid]="              (formulario.hasError(\'noCoinciden\') ||                formulario.controls[\'confirmarPassword\'].hasError(\'required\')) &&              formulario.controls[\'confirmarPassword\'].touched            "            [class.is-valid]="              !formulario.hasError(\'noCoinciden\') &&              formulario.controls[\'confirmarPassword\'].valid &&              formulario.controls[\'confirmarPassword\'].touched            "          />          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'confirmarPassword\'].hasError(\'required\') &&              formulario.controls[\'confirmarPassword\'].touched            "          >            Debes repetir la contraseña.          </div>          <div            class="invalid-feedback"            *ngIf="              formulario.hasError(\'noCoinciden\') && formulario.controls[\'confirmarPassword\'].touched            "          >            Las contraseñas no coinciden.          </div>        </div>        <!-- Fecha de nacimiento -->        <div class="mb-3">          <label class="form-label">Fecha de nacimiento</label>          <input            type="date"            formControlName="fechaNacimiento"            class="form-control"            [max]="hoy"            [class.is-invalid]="              formulario.controls[\'fechaNacimiento\'].invalid &&              formulario.controls[\'fechaNacimiento\'].touched            "            [class.is-valid]="              formulario.controls[\'fechaNacimiento\'].valid &&              formulario.controls[\'fechaNacimiento\'].touched            "          />          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'fechaNacimiento\'].hasError(\'required\') &&              formulario.controls[\'fechaNacimiento\'].touched            "          >            La fecha de nacimiento es obligatoria.          </div>          <div            class="invalid-feedback"            *ngIf="              formulario.controls[\'fechaNacimiento\'].hasError(\'menorDe13\') &&              formulario.controls[\'fechaNacimiento\'].touched            "          >            Debes tener al menos 13 años para registrarte.          </div>        </div>        <!-- Dirección (opcional) -->        <div class="mb-3">          <label class="form-label">            Dirección despacho <span class="text-muted">(opcional)</span>          </label>          <input type="text" formControlName="direccion" class="form-control" />        </div>        <!-- Botones -->        <button type="submit" class="btn btn-primary w-100">Inscribirme</button>        <button type="button" class="btn btn-secondary w-100 mt-2" (click)="limpiar()">          Limpiar        </button>      </form>    </div>  </div></main></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Categoria', 'selector': 'app-categoria'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Formulario'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Formulario.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
