@@ -74,7 +74,28 @@ export class Autenticar {
 
     return true;
   }
+  actualizarPerfil(datos: any): boolean {
+    const usuario = this.usuarioActual();
+    if (!usuario) return false;
 
+    // verifica que el correo no lo use otro usuario
+    const correoEnUso = this.usuarios.find(
+      (u) => u.correo === datos.correo && u.correo !== usuario.correo,
+    );
+    if (correoEnUso) return false;
+
+    // actualiza los datos
+    usuario.nombre = datos.nombre;
+    usuario.nombreUsuario = datos.nombreUsuario;
+    usuario.correo = datos.correo;
+    usuario.direccion = datos.direccion;
+    if (datos.password) {
+      usuario.password = datos.password;
+    }
+
+    this.usuarioActual.set(usuario);
+    return true;
+  }
   logout() {
     this.usuarioActual.set(null);
   }

@@ -1,0 +1,134 @@
+<main class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <h1 class="text-center mb-4">Mi Perfil</h1>
+
+      <form [formGroup]="formulario" (ngSubmit)="guardar()">
+        <!-- Nombre -->
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input
+            type="text"
+            formControlName="nombre"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['nombre'].valid && formulario.controls['nombre'].touched
+            "
+          />
+          @if (formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched) {
+            <div class="invalid-feedback d-block">El nombre es obligatorio.</div>
+          }
+        </div>
+
+        <!-- Nombre de usuario -->
+        <div class="mb-3">
+          <label class="form-label">Nombre de usuario</label>
+          <input
+            type="text"
+            formControlName="nombreUsuario"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nombreUsuario'].invalid &&
+              formulario.controls['nombreUsuario'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['nombreUsuario'].valid &&
+              formulario.controls['nombreUsuario'].touched
+            "
+          />
+          @if (
+            formulario.controls['nombreUsuario'].invalid &&
+            formulario.controls['nombreUsuario'].touched
+          ) {
+            <div class="invalid-feedback d-block">El nombre de usuario es obligatorio.</div>
+          }
+        </div>
+
+        <!-- Correo -->
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input
+            type="email"
+            formControlName="correo"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['correo'].invalid && formulario.controls['correo'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['correo'].valid && formulario.controls['correo'].touched
+            "
+          />
+          @if (
+            formulario.controls['correo'].hasError('required') &&
+            formulario.controls['correo'].touched
+          ) {
+            <div class="invalid-feedback d-block">El correo es obligatorio.</div>
+          }
+          @if (
+            formulario.controls['correo'].hasError('email') && formulario.controls['correo'].touched
+          ) {
+            <div class="invalid-feedback d-block">El formato del correo no es válido.</div>
+          }
+        </div>
+
+        <!-- Nueva contraseña (opcional) -->
+        <div class="mb-3">
+          <label class="form-label"
+            >Nueva contraseña <span class="text-muted">(opcional)</span></label
+          >
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['password'].invalid && formulario.controls['password'].touched
+            "
+            [class.is-valid]="
+              formulario.controls['password'].valid && formulario.controls['password'].touched
+            "
+            placeholder="Dejar vacío para no cambiar"
+          />
+          @if (
+            formulario.controls['password'].hasError('minlength') &&
+            formulario.controls['password'].touched
+          ) {
+            <div class="invalid-feedback d-block">Mínimo 6 caracteres.</div>
+          }
+          @if (
+            formulario.controls['password'].hasError('sinMayuscula') &&
+            formulario.controls['password'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos una mayúscula.</div>
+          }
+          @if (
+            formulario.controls['password'].hasError('sinNumero') &&
+            formulario.controls['password'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos un número.</div>
+          }
+        </div>
+
+        <!-- Dirección -->
+        <div class="mb-3">
+          <label class="form-label"
+            >Dirección despacho <span class="text-muted">(opcional)</span></label
+          >
+          <input type="text" formControlName="direccion" class="form-control" />
+        </div>
+
+        <!-- Mensajes -->
+        @if (mensajeExito) {
+          <div class="alert alert-success">{{ mensajeExito }}</div>
+        }
+        @if (mensajeError) {
+          <div class="alert alert-danger">{{ mensajeError }}</div>
+        }
+
+        <button type="submit" class="btn btn-primary w-100">Guardar cambios</button>
+      </form>
+    </div>
+  </div>
+</main>

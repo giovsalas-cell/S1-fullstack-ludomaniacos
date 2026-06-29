@@ -1,15 +1,8 @@
-import { inject } from '@angular/core';
-import { CanActivateFn, Router } from '@angular/router';
-import { Autenticar } from '../services/autenticar';
+import { TestBed } from '@angular/core/testing';
+import { adminGuard } from '../guards/auth-guard';
 
-export const adminGuard: CanActivateFn = () => {
-  const autenticar = inject(Autenticar);
-  const router = inject(Router);
-
-  if (autenticar.esAdmin()) {
-    return true;
-  }
-
-  router.navigate(['/login']);
-  return false;
-};
+describe('adminGuard', () => {
+  it('debe existir', () => {
+    expect(adminGuard).toBeTruthy();
+  });
+});
