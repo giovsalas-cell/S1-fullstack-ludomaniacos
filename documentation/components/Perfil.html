@@ -319,7 +319,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/perfil/perfil.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/perfil/perfil.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -410,8 +410,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="68"
-                                    class="link-to-prism">src/app/components/perfil/perfil.ts:68</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/components/perfil/perfil.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -447,8 +447,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="53"
-                                    class="link-to-prism">src/app/components/perfil/perfil.ts:53</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/components/perfil/perfil.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -490,7 +490,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/perfil/perfil.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/perfil/perfil.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -521,7 +521,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/perfil/perfil.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/perfil/perfil.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -552,7 +552,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/perfil/perfil.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/perfil/perfil.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -567,26 +567,9 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import {
-  ReactiveFormsModule,
-  FormBuilder,
-  FormGroup,
-  Validators,
-  AbstractControl,
-  ValidationErrors,
-} from &#x27;@angular/forms&#x27;;
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { Autenticar } from &#x27;../../services/autenticar&#x27;;
-
-function tieneMayuscula(control: AbstractControl): ValidationErrors | null {
-  if (/[A-Z]/.test(control.value)) return null;
-  return { sinMayuscula: true };
-}
-
-function tieneNumero(control: AbstractControl): ValidationErrors | null {
-  if (/[0-9]/.test(control.value)) return null;
-  return { sinNumero: true };
-}
 
 @Component({
   selector: &#x27;app-perfil&#x27;,
@@ -609,16 +592,11 @@ export class Perfil implements OnInit {
       nombre: [&#x27;&#x27;, Validators.required],
       nombreUsuario: [&#x27;&#x27;, Validators.required],
       correo: [&#x27;&#x27;, [Validators.required, Validators.email]],
-      password: [
-        &#x27;&#x27;,
-        [Validators.minLength(6), Validators.maxLength(18), tieneMayuscula, tieneNumero],
-      ],
       direccion: [&#x27;&#x27;],
     });
   }
 
   ngOnInit() {
-    // carga los datos del usuario actual en el formulario
     const usuario &#x3D; this.autenticar.usuarioActual();
     if (!usuario) {
       this.router.navigate([&#x27;/login&#x27;]);
@@ -643,6 +621,9 @@ export class Perfil implements OnInit {
     if (exito) {
       this.mensajeExito &#x3D; &#x27;Perfil actualizado exitosamente!&#x27;;
       this.mensajeError &#x3D; &#x27;&#x27;;
+      setTimeout(() &#x3D;&gt; {
+        this.router.navigate([&#x27;/&#x27;]);
+      }, 1500);
     } else {
       this.mensajeError &#x3D; &#x27;El correo ya está en uso por otro usuario.&#x27;;
       this.mensajeExito &#x3D; &#x27;&#x27;;
@@ -729,43 +710,6 @@ export class Perfil implements OnInit {
           }
         &lt;/div&gt;
 
-        &lt;!-- Nueva contraseña (opcional) --&gt;
-        &lt;div class&#x3D;&quot;mb-3&quot;&gt;
-          &lt;label class&#x3D;&quot;form-label&quot;
-            &gt;Nueva contraseña &lt;span class&#x3D;&quot;text-muted&quot;&gt;(opcional)&lt;/span&gt;&lt;/label
-          &gt;
-          &lt;input
-            type&#x3D;&quot;password&quot;
-            formControlName&#x3D;&quot;password&quot;
-            class&#x3D;&quot;form-control&quot;
-            [class.is-invalid]&#x3D;&quot;
-              formulario.controls[&#x27;password&#x27;].invalid &amp;&amp; formulario.controls[&#x27;password&#x27;].touched
-            &quot;
-            [class.is-valid]&#x3D;&quot;
-              formulario.controls[&#x27;password&#x27;].valid &amp;&amp; formulario.controls[&#x27;password&#x27;].touched
-            &quot;
-            placeholder&#x3D;&quot;Dejar vacío para no cambiar&quot;
-          /&gt;
-          @if (
-            formulario.controls[&#x27;password&#x27;].hasError(&#x27;minlength&#x27;) &amp;&amp;
-            formulario.controls[&#x27;password&#x27;].touched
-          ) {
-            &lt;div class&#x3D;&quot;invalid-feedback d-block&quot;&gt;Mínimo 6 caracteres.&lt;/div&gt;
-          }
-          @if (
-            formulario.controls[&#x27;password&#x27;].hasError(&#x27;sinMayuscula&#x27;) &amp;&amp;
-            formulario.controls[&#x27;password&#x27;].touched
-          ) {
-            &lt;div class&#x3D;&quot;invalid-feedback d-block&quot;&gt;Debe tener al menos una mayúscula.&lt;/div&gt;
-          }
-          @if (
-            formulario.controls[&#x27;password&#x27;].hasError(&#x27;sinNumero&#x27;) &amp;&amp;
-            formulario.controls[&#x27;password&#x27;].touched
-          ) {
-            &lt;div class&#x3D;&quot;invalid-feedback d-block&quot;&gt;Debe tener al menos un número.&lt;/div&gt;
-          }
-        &lt;/div&gt;
-
         &lt;!-- Dirección --&gt;
         &lt;div class&#x3D;&quot;mb-3&quot;&gt;
           &lt;label class&#x3D;&quot;form-label&quot;
@@ -822,8 +766,8 @@ export class Perfil implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><main class="container mt-4">  <div class="row justify-content-center">    <div class="col-12 col-md-8 col-lg-6">      <h1 class="text-center mb-4">Mi Perfil</h1>      <form [formGroup]="formulario" (ngSubmit)="guardar()">        <!-- Nombre -->        <div class="mb-3">          <label class="form-label">Nombre</label>          <input            type="text"            formControlName="nombre"            class="form-control"            [class.is-invalid]="              formulario.controls[\'nombre\'].invalid && formulario.controls[\'nombre\'].touched            "            [class.is-valid]="              formulario.controls[\'nombre\'].valid && formulario.controls[\'nombre\'].touched            "          />          @if (formulario.controls[\'nombre\'].invalid && formulario.controls[\'nombre\'].touched) {            <div class="invalid-feedback d-block">El nombre es obligatorio.</div>          }        </div>        <!-- Nombre de usuario -->        <div class="mb-3">          <label class="form-label">Nombre de usuario</label>          <input            type="text"            formControlName="nombreUsuario"            class="form-control"            [class.is-invalid]="              formulario.controls[\'nombreUsuario\'].invalid &&              formulario.controls[\'nombreUsuario\'].touched            "            [class.is-valid]="              formulario.controls[\'nombreUsuario\'].valid &&              formulario.controls[\'nombreUsuario\'].touched            "          />          @if (            formulario.controls[\'nombreUsuario\'].invalid &&            formulario.controls[\'nombreUsuario\'].touched          ) {            <div class="invalid-feedback d-block">El nombre de usuario es obligatorio.</div>          }        </div>        <!-- Correo -->        <div class="mb-3">          <label class="form-label">Correo</label>          <input            type="email"            formControlName="correo"            class="form-control"            [class.is-invalid]="              formulario.controls[\'correo\'].invalid && formulario.controls[\'correo\'].touched            "            [class.is-valid]="              formulario.controls[\'correo\'].valid && formulario.controls[\'correo\'].touched            "          />          @if (            formulario.controls[\'correo\'].hasError(\'required\') &&            formulario.controls[\'correo\'].touched          ) {            <div class="invalid-feedback d-block">El correo es obligatorio.</div>          }          @if (            formulario.controls[\'correo\'].hasError(\'email\') && formulario.controls[\'correo\'].touched          ) {            <div class="invalid-feedback d-block">El formato del correo no es válido.</div>          }        </div>        <!-- Nueva contraseña (opcional) -->        <div class="mb-3">          <label class="form-label"            >Nueva contraseña <span class="text-muted">(opcional)</span></label          >          <input            type="password"            formControlName="password"            class="form-control"            [class.is-invalid]="              formulario.controls[\'password\'].invalid && formulario.controls[\'password\'].touched            "            [class.is-valid]="              formulario.controls[\'password\'].valid && formulario.controls[\'password\'].touched            "            placeholder="Dejar vacío para no cambiar"          />          @if (            formulario.controls[\'password\'].hasError(\'minlength\') &&            formulario.controls[\'password\'].touched          ) {            <div class="invalid-feedback d-block">Mínimo 6 caracteres.</div>          }          @if (            formulario.controls[\'password\'].hasError(\'sinMayuscula\') &&            formulario.controls[\'password\'].touched          ) {            <div class="invalid-feedback d-block">Debe tener al menos una mayúscula.</div>          }          @if (            formulario.controls[\'password\'].hasError(\'sinNumero\') &&            formulario.controls[\'password\'].touched          ) {            <div class="invalid-feedback d-block">Debe tener al menos un número.</div>          }        </div>        <!-- Dirección -->        <div class="mb-3">          <label class="form-label"            >Dirección despacho <span class="text-muted">(opcional)</span></label          >          <input type="text" formControlName="direccion" class="form-control" />        </div>        <!-- Mensajes -->        @if (mensajeExito) {          <div class="alert alert-success">{{ mensajeExito }}</div>        }        @if (mensajeError) {          <div class="alert alert-danger">{{ mensajeError }}</div>        }        <button type="submit" class="btn btn-primary w-100">Guardar cambios</button>      </form>    </div>  </div></main></div>'
-    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Categoria', 'selector': 'app-categoria'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'}];
+        var COMPONENT_TEMPLATE = '<div><main class="container mt-4">  <div class="row justify-content-center">    <div class="col-12 col-md-8 col-lg-6">      <h1 class="text-center mb-4">Mi Perfil</h1>      <form [formGroup]="formulario" (ngSubmit)="guardar()">        <!-- Nombre -->        <div class="mb-3">          <label class="form-label">Nombre</label>          <input            type="text"            formControlName="nombre"            class="form-control"            [class.is-invalid]="              formulario.controls[\'nombre\'].invalid && formulario.controls[\'nombre\'].touched            "            [class.is-valid]="              formulario.controls[\'nombre\'].valid && formulario.controls[\'nombre\'].touched            "          />          @if (formulario.controls[\'nombre\'].invalid && formulario.controls[\'nombre\'].touched) {            <div class="invalid-feedback d-block">El nombre es obligatorio.</div>          }        </div>        <!-- Nombre de usuario -->        <div class="mb-3">          <label class="form-label">Nombre de usuario</label>          <input            type="text"            formControlName="nombreUsuario"            class="form-control"            [class.is-invalid]="              formulario.controls[\'nombreUsuario\'].invalid &&              formulario.controls[\'nombreUsuario\'].touched            "            [class.is-valid]="              formulario.controls[\'nombreUsuario\'].valid &&              formulario.controls[\'nombreUsuario\'].touched            "          />          @if (            formulario.controls[\'nombreUsuario\'].invalid &&            formulario.controls[\'nombreUsuario\'].touched          ) {            <div class="invalid-feedback d-block">El nombre de usuario es obligatorio.</div>          }        </div>        <!-- Correo -->        <div class="mb-3">          <label class="form-label">Correo</label>          <input            type="email"            formControlName="correo"            class="form-control"            [class.is-invalid]="              formulario.controls[\'correo\'].invalid && formulario.controls[\'correo\'].touched            "            [class.is-valid]="              formulario.controls[\'correo\'].valid && formulario.controls[\'correo\'].touched            "          />          @if (            formulario.controls[\'correo\'].hasError(\'required\') &&            formulario.controls[\'correo\'].touched          ) {            <div class="invalid-feedback d-block">El correo es obligatorio.</div>          }          @if (            formulario.controls[\'correo\'].hasError(\'email\') && formulario.controls[\'correo\'].touched          ) {            <div class="invalid-feedback d-block">El formato del correo no es válido.</div>          }        </div>        <!-- Dirección -->        <div class="mb-3">          <label class="form-label"            >Dirección despacho <span class="text-muted">(opcional)</span></label          >          <input type="text" formControlName="direccion" class="form-control" />        </div>        <!-- Mensajes -->        @if (mensajeExito) {          <div class="alert alert-success">{{ mensajeExito }}</div>        }        @if (mensajeError) {          <div class="alert alert-danger">{{ mensajeError }}</div>        }        <button type="submit" class="btn btn-primary w-100">Guardar cambios</button>      </form>    </div>  </div></main></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Categoria', 'selector': 'app-categoria'},{'name': 'Formulario', 'selector': 'app-formulario'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Perfil'};
 </script>
