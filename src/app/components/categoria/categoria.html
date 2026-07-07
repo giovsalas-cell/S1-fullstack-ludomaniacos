@@ -1,8 +1,8 @@
-@if (tipo === 'carta') {
+@if (tipo() === 'carta') {
   <div class="container my-5 pt-4">
     <h3 class="border-bottom pb-2 fw-bold text-uppercase">Juegos de Cartas</h3>
     <div class="row g-4">
-      @for (producto of productosCarta; track producto.nombre) {
+      @for (producto of productosCarta(); track producto.nombre) {
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-sm position-relative">
             @if (producto.descuento) {
@@ -41,11 +41,11 @@
   </div>
 }
 
-@if (tipo === 'mesa') {
+@if (tipo() === 'mesa') {
   <div class="container my-5 pt-4">
     <h3 class="border-bottom pb-2 fw-bold text-uppercase">Juegos de Mesa</h3>
     <div class="row g-4">
-      @for (producto of productosMesa; track producto.nombre) {
+      @for (producto of productosMesa(); track producto.nombre) {
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-sm position-relative">
             @if (producto.descuento) {
@@ -84,11 +84,11 @@
   </div>
 }
 
-@if (tipo === 'rol') {
+@if (tipo() === 'rol') {
   <div class="container my-5 pt-4">
     <h3 class="border-bottom pb-2 fw-bold text-uppercase">Juegos de ROL</h3>
     <div class="row g-4">
-      @for (producto of productosRol; track producto.nombre) {
+      @for (producto of productosRol(); track producto.nombre) {
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-sm position-relative">
             @if (producto.descuento) {
@@ -127,11 +127,11 @@
   </div>
 }
 
-@if (tipo === 'cooperativo') {
+@if (tipo() === 'cooperativo') {
   <div class="container my-5 pt-4">
     <h3 class="border-bottom pb-2 fw-bold text-uppercase">Cooperativo</h3>
     <div class="row g-4">
-      @for (producto of productosCooperativo; track producto.nombre) {
+      @for (producto of productosCooperativo(); track producto.nombre) {
         <div class="col-12 col-md-6 col-lg-4">
           <div class="card h-100 shadow-sm position-relative">
             @if (producto.descuento) {

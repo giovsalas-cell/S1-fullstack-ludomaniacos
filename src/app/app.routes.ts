@@ -18,4 +18,9 @@ export const routes: Routes = [
   { path: 'admin', component: Admin, canActivate: [adminGuard] },
   { path: 'recuperar', component: Recuperar },
   { path: 'perfil', component: Perfil },
+  {
+    path: 'categoria/:tipo',
+    component: Categoria,
+    runGuardsAndResolvers: 'always',
+  },
 ];
