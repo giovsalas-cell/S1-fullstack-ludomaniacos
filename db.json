@@ -1,0 +1,192 @@
+{
+  "productos": [
+    {
+      "id": "2",
+      "nombre": "UNO",
+      "precio": 5990,
+      "precioOriginal": 0,
+      "img": "/img/maso-cartas-uno.jpg",
+      "descuento": "",
+      "descripcion": "Las cartas Uno son un juego icónico y mundialmente reconocido.",
+      "categoria": "carta"
+    },
+    {
+      "id": "3",
+      "nombre": "VIRUS HALLOWEEN",
+      "precio": 7990,
+      "precioOriginal": 0,
+      "img": "/img/maso-cartas-virus-halloween.jpg",
+      "descuento": "",
+      "descripcion": "Juego competitivo para 2 a 6 jugadores, mayores de 8 años.",
+      "categoria": "carta"
+    },
+    {
+      "id": "4",
+      "nombre": "Catan",
+      "precio": 33991,
+      "precioOriginal": 39990,
+      "img": "/img/catan.avif",
+      "descuento": "-15% DESCUENTO",
+      "descripcion": "El clásico juego de estrategia donde debes colonizar, comerciar y construir en la isla de Catan.",
+      "categoria": "mesa"
+    },
+    {
+      "id": "5",
+      "nombre": "Monopoly",
+      "precio": 39990,
+      "precioOriginal": 0,
+      "img": "/img/monopoly.avif",
+      "descuento": "",
+      "descripcion": "Su objetivo es formar un monopolio comprando, alquilando y vendiendo bienes raíces.",
+      "categoria": "mesa"
+    },
+    {
+      "id": "6",
+      "nombre": "Jumanji",
+      "precio": 39990,
+      "precioOriginal": 0,
+      "img": "/img/jumanjijuego-65f8649a9f635.avif",
+      "descuento": "",
+      "descripcion": "Emocionante reto cooperativo diseñado para 2 a 4 jugadores.",
+      "categoria": "mesa"
+    },
+    {
+      "id": "7",
+      "nombre": "Heroquest First Light",
+      "precio": 33991,
+      "precioOriginal": 0,
+      "img": "/img/Rol-DragonQuest.webp",
+      "descuento": "",
+      "descripcion": "Sigue a 4 héroes a lo largo de misiones en mazmorras llenas de monstruos y tesoros.",
+      "categoria": "rol"
+    },
+    {
+      "id": "8",
+      "nombre": "Mundo de Reterra",
+      "precio": 39990,
+      "precioOriginal": 0,
+      "img": "/img/rol-reterra.webp",
+      "descuento": "",
+      "descripcion": "Juego de reconstrucción de comunidades en un futuro no tan lejano.",
+      "categoria": "rol"
+    },
+    {
+      "id": "9",
+      "nombre": "Warhammer 40,000",
+      "precio": 39990,
+      "precioOriginal": 0,
+      "img": "/img/warhammercarousel.png",
+      "descuento": "",
+      "descripcion": "Juego de guerra ambientado en un futuro distópico.",
+      "categoria": "rol"
+    },
+    {
+      "id": "10",
+      "nombre": "La Isla Prohibida",
+      "precio": 33991,
+      "precioOriginal": 0,
+      "img": "/img/cooperativo-isla-prohibida.jpg",
+      "descuento": "",
+      "descripcion": "Deben recuperar tesoros y escapar antes de que la isla se hunda.",
+      "categoria": "cooperativo"
+    },
+    {
+      "id": "11",
+      "nombre": "KITCHEN RUSH!",
+      "precio": 39990,
+      "precioOriginal": 0,
+      "img": "/img/cooperativo-kitchen-rush.jpg",
+      "descuento": "",
+      "descripcion": "Acabas de heredar un restaurante y debes convertirlo en un negocio exitoso.",
+      "categoria": "cooperativo"
+    },
+    {
+      "id": "12",
+      "nombre": "ZOMBICIDE",
+      "precio": 39990,
+      "precioOriginal": 0,
+      "img": "/img/cooperativo-zonbiecide.webp",
+      "descuento": "",
+      "descripcion": "Juego cooperativo con miniaturas para 1 a 6 jugadores.",
+      "categoria": "cooperativo"
+    },
+    {
+      "nombre": "truco",
+      "precio": 2000,
+      "precioOriginal": 0,
+      "img": "img/maso-cartas-truco.webp",
+      "descuento": "",
+      "descripcion": "juego de cartas truco",
+      "categoria": "carta",
+      "id": "hali2Bz4Pdc"
+    }
+  ],
+  "usuarios": [],
+  "preventas": [
+    {
+      "id": "2",
+      "nombre": "Warhammer: Age of Sigmar",
+      "precio": 89000,
+      "precioOriginal": 110000,
+      "img": "/img/warhammercarousel.png",
+      "descuento": "-19% PREVENTA",
+      "descripcion": "Nueva edición del aclamado juego de miniaturas con reglas renovadas y nuevas facciones.",
+      "categoria": "rol",
+      "disponible": false,
+      "fechaLanzamiento": "2025-11-15",
+      "unidades": 30
+    },
+    {
+      "id": "3",
+      "nombre": "UNO: Edición Coleccionista",
+      "precio": 15000,
+      "precioOriginal": 20000,
+      "img": "/img/maso-cartas-uno.jpg",
+      "descuento": "-25% PREVENTA",
+      "descripcion": "Edición especial de UNO con cartas doradas y estuche exclusivo de colección.",
+      "categoria": "carta",
+      "disponible": false,
+      "fechaLanzamiento": "2025-10-31",
+      "unidades": 100
+    },
+    {
+      "id": "4",
+      "nombre": "Zombicide: Black Plague II",
+      "precio": 75000,
+      "precioOriginal": 90000,
+      "img": "/img/cooperativo-zonbiecide.webp",
+      "descuento": "-17% PREVENTA",
+      "descripcion": "La secuela del exitoso cooperativo con nuevos supervivientes y hordas de zombies medievales.",
+      "categoria": "cooperativo",
+      "disponible": false,
+      "fechaLanzamiento": "2026-01-15",
+      "unidades": 40
+    },
+    {
+      "id": "5",
+      "nombre": "Monopoly: Edición Lujo",
+      "precio": 55000,
+      "precioOriginal": 70000,
+      "img": "/img/monopoly.avif",
+      "descuento": "-21% PREVENTA",
+      "descripcion": "Edición de lujo del clásico Monopoly con piezas metálicas y tablero de madera premium.",
+      "categoria": "mesa",
+      "disponible": false,
+      "fechaLanzamiento": "2025-12-25",
+      "unidades": 25
+    },
+    {
+      "nombre": "Catan: Nueva Era",
+      "precio": 100000,
+      "precioOriginal": 1,
+      "img": "111",
+      "descuento": "111",
+      "descripcion": "1",
+      "fechaLanzamiento": "2026-07-14",
+      "unidades": 1111,
+      "disponible": null,
+      "id": "bqyY_cFwcxQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

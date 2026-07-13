@@ -8,6 +8,8 @@ import { Admin } from './components/admin/admin';
 import { adminGuard } from './guards/auth-guard';
 import { Recuperar } from './components/recuperar/recuperar';
 import { Perfil } from './components/perfil/perfil';
+import { Preventas } from './components/preventas/preventas';
+import { PreventasJsonServer } from './components/preventas-json-server/preventas-json-server';
 
 export const routes: Routes = [
   { path: '', component: Inicio },
@@ -23,4 +25,6 @@ export const routes: Routes = [
     component: Categoria,
     runGuardsAndResolvers: 'always',
   },
+  { path: 'preventas', component: Preventas },
+  { path: 'preventas-json-server', component: PreventasJsonServer, canActivate: [adminGuard] },
 ];

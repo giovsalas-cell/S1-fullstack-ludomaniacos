@@ -153,6 +153,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/HbsRenderService.html" data-type="entity-link" >HbsRenderService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/JsonService.html" data-type="entity-link" >JsonService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ProductosService.html" data-type="entity-link" >ProductosService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/TemplateEditorService.html" data-type="entity-link" >TemplateEditorService</a>
                                 </li>
                                 <li class="link">
@@ -183,6 +189,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/CompoDocConfig.html" data-type="entity-link" >CompoDocConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Producto.html" data-type="entity-link" >Producto</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/Producto-1.html" data-type="entity-link" >Producto</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Session.html" data-type="entity-link" >Session</a>

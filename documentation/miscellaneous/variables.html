@@ -181,9 +181,9 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes)
-  ]
+    provideRouter(routes, withRouterConfig({ onSameUrlNavigation: &#x27;reload&#x27; })),
+    provideHttpClient(),
+  ],
 }</code>
                     </td>
                 </tr>
@@ -294,6 +294,11 @@
   { path: &#x27;admin&#x27;, component: Admin, canActivate: [adminGuard] },
   { path: &#x27;recuperar&#x27;, component: Recuperar },
   { path: &#x27;perfil&#x27;, component: Perfil },
+  {
+    path: &#x27;categoria/:tipo&#x27;,
+    component: Categoria,
+    runGuardsAndResolvers: &#x27;always&#x27;,
+  },
 ]</code>
                     </td>
                 </tr>
