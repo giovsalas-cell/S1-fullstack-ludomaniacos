@@ -1,7 +1,7 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductosService } from '../../services/productos';
+import { PreventasService, Preventa } from '../../services/preventas';
 
 /**
  * Componente de preventas que consume datos desde JSON Server
@@ -16,22 +16,20 @@ import { ProductosService } from '../../services/productos';
 })
 export class PreventasJsonServer implements OnInit {
   /** Lista de preventas obtenidas desde JSON Server */
-  preventas = signal<any[]>([]);
+  preventas = signal<Preventa[]>([]);
 
   /** Formulario para agregar o editar preventas */
   formulario: FormGroup;
 
   /** Preventa en edición actual */
-  preventaEditando: any = null;
+  preventaEditando: Preventa | null = null;
 
   /** Mensaje de éxito */
   mensajeExito: string = '';
 
-  private apiUrl = 'http://localhost:3000/preventas';
-
   constructor(
     private fb: FormBuilder,
-    private productosService: ProductosService,
+    private preventasService: PreventasService,
   ) {
     this.formulario = this.fb.group({
       nombre: ['', Validators.required],
@@ -54,7 +52,8 @@ export class PreventasJsonServer implements OnInit {
    * GET - Carga todas las preventas desde JSON Server
    */
   cargarPreventas() {
-    this.productosService['http'].get<any[]>(this.apiUrl).subscribe((data) => {
+    this.preventasService.getPreventas().subscribe((data) => {
+      console.log('Preventas:', data);
       this.preventas.set(data);
     });
   }
@@ -67,7 +66,7 @@ export class PreventasJsonServer implements OnInit {
       this.formulario.markAllAsTouched();
       return;
     }
-    this.productosService['http'].post<any>(this.apiUrl, this.formulario.value).subscribe(() => {
+    this.preventasService.agregarPreventa(this.formulario.value).subscribe(() => {
       this.mensajeExito = 'Preventa agregada correctamente';
       this.formulario.reset();
       this.cargarPreventas();
@@ -78,7 +77,7 @@ export class PreventasJsonServer implements OnInit {
    * PUT - Carga datos de una preventa para editar
    * @param preventa Preventa a editar
    */
-  cargarEdicion(preventa: any) {
+  cargarEdicion(preventa: Preventa) {
     this.preventaEditando = preventa;
     this.formulario.patchValue(preventa);
   }
@@ -88,8 +87,8 @@ export class PreventasJsonServer implements OnInit {
    */
   guardarEdicion() {
     if (this.formulario.invalid || !this.preventaEditando?.id) return;
-    this.productosService['http']
-      .put<any>(`${this.apiUrl}/${this.preventaEditando.id}`, this.formulario.value)
+    this.preventasService
+      .editarPreventa(this.preventaEditando.id, this.formulario.value)
       .subscribe(() => {
         this.mensajeExito = 'Preventa editada correctamente';
         this.preventaEditando = null;
@@ -104,13 +103,16 @@ export class PreventasJsonServer implements OnInit {
    */
   eliminar(id: number) {
     if (confirm('¿Eliminar esta preventa?')) {
-      this.productosService['http'].delete<void>(`${this.apiUrl}/${id}`).subscribe(() => {
+      this.preventasService.eliminarPreventa(id).subscribe(() => {
         this.mensajeExito = 'Preventa eliminada correctamente';
         this.cargarPreventas();
       });
     }
   }
 
+  /**
+   * Cancela la edición actual y limpia el formulario
+   */
   cancelarEdicion() {
     this.preventaEditando = null;
     this.formulario.reset();

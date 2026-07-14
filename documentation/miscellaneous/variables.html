@@ -299,6 +299,8 @@
     component: Categoria,
     runGuardsAndResolvers: &#x27;always&#x27;,
   },
+  { path: &#x27;preventas&#x27;, component: Preventas },
+  { path: &#x27;preventas-json-server&#x27;, component: PreventasJsonServer, canActivate: [adminGuard] },
 ]</code>
                     </td>
                 </tr>

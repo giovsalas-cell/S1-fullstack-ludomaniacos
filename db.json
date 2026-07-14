@@ -114,11 +114,21 @@
       "nombre": "truco",
       "precio": 2000,
       "precioOriginal": 0,
-      "img": "img/maso-cartas-truco.webp",
+      "img": "/img/maso-cartas-truco.webp",
       "descuento": "",
       "descripcion": "juego de cartas truco",
       "categoria": "carta",
       "id": "hali2Bz4Pdc"
+    },
+    {
+      "nombre": "Mitos y leyendas",
+      "precio": 1000,
+      "precioOriginal": 900,
+      "img": "/img/carta-mitos.webp",
+      "descuento": "",
+      "descripcion": "juegos de cartas mitos y leyendas",
+      "categoria": "carta",
+      "id": "wxAsmC02X1k"
     }
   ],
   "usuarios": [],
@@ -176,16 +186,17 @@
       "unidades": 25
     },
     {
+      "id": "6",
       "nombre": "Catan: Nueva Era",
-      "precio": 100000,
-      "precioOriginal": 1,
-      "img": "111",
-      "descuento": "111",
-      "descripcion": "1",
-      "fechaLanzamiento": "2026-07-14",
-      "unidades": 1111,
-      "disponible": null,
-      "id": "bqyY_cFwcxQ"
+      "precio": 45000,
+      "precioOriginal": 55000,
+      "img": "/img/catan.avif",
+      "descuento": "-18% PREVENTA",
+      "descripcion": "La nueva expansión de Catan llega con nuevas islas y modos de juego épicos.",
+      "categoria": "mesa",
+      "disponible": false,
+      "fechaLanzamiento": "2025-12-01",
+      "unidades": 50
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

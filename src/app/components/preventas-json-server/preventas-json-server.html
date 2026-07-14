@@ -1,5 +1,5 @@
 <main class="container mt-4">
-  <h1 class="text-center mb-2">🎲 Preventas — JSON Server</h1>
+  <h1 class="text-center mb-2">Preventas — JSON Server</h1>
   <p class="text-center text-muted mb-4">Gestión de preventas via API REST</p>
 
   <!-- FORMULARIO -->
@@ -73,7 +73,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (preventa of preventas(); track preventa.id) {
+          @for (preventa of preventas(); track $index) {
             <tr>
               <td>{{ preventa.id }}</td>
               <td>{{ preventa.nombre }}</td>
@@ -84,7 +84,7 @@
                 <button class="btn btn-warning btn-sm me-2" (click)="cargarEdicion(preventa)">
                   Editar
                 </button>
-                <button class="btn btn-danger btn-sm" (click)="eliminar(preventa.id)">
+                <button class="btn btn-danger btn-sm" (click)="eliminar(preventa.id!)">
                   Eliminar
                 </button>
               </td>

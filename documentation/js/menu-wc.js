@@ -128,6 +128,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/Perfil.html" data-type="entity-link" >Perfil</a>
                             </li>
                             <li class="link">
+                                <a href="components/Preventas.html" data-type="entity-link" >Preventas</a>
+                            </li>
+                            <li class="link">
+                                <a href="components/PreventasJsonServer.html" data-type="entity-link" >PreventasJsonServer</a>
+                            </li>
+                            <li class="link">
                                 <a href="components/Recuperar.html" data-type="entity-link" >Recuperar</a>
                             </li>
                         </ul>
