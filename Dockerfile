@@ -11,4 +11,5 @@ RUN npm run build
 # Etapa 3 - Nginx para servir la app
 FROM nginx:alpine
 COPY --from=build /app/dist/app.ludomaniacos/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80

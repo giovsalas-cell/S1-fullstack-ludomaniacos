@@ -13,7 +13,7 @@
     <form [formGroup]="formulario">
       <div class="row g-3">
         <div class="col-12 col-md-6">
-          <label class="form-label">Nombre</label>
+          <label class="form-label">Nombre *</label>
           <input
             type="text"
             formControlName="nombre"
@@ -36,7 +36,7 @@
           }
         </div>
         <div class="col-12 col-md-6">
-          <label class="form-label">Fecha Lanzamiento</label>
+          <label class="form-label">Fecha Lanzamiento *</label>
           <input
             type="date"
             formControlName="fechaLanzamiento"
@@ -54,7 +54,7 @@
           }
         </div>
         <div class="col-12 col-md-4">
-          <label class="form-label">Precio</label>
+          <label class="form-label">Precio *</label>
           <input
             type="number"
             formControlName="precio"
@@ -76,7 +76,7 @@
           }
         </div>
         <div class="col-12 col-md-4">
-          <label class="form-label">Precio Original</label>
+          <label class="form-label">Precio Original *</label>
           <input
             type="number"
             formControlName="precioOriginal"
@@ -100,7 +100,7 @@
           }
         </div>
         <div class="col-12 col-md-4">
-          <label class="form-label">Unidades</label>
+          <label class="form-label">Unidades *</label>
           <input
             type="number"
             formControlName="unidades"
@@ -123,7 +123,7 @@
           }
         </div>
         <div class="col-12">
-          <label class="form-label">URL Imagen</label>
+          <label class="form-label">URL Imagen *</label>
           <input
             type="text"
             formControlName="img"
@@ -141,7 +141,7 @@
           <input type="text" formControlName="descuento" class="form-control" />
         </div>
         <div class="col-12">
-          <label class="form-label">Descripción</label>
+          <label class="form-label">Descripción *</label>
           <textarea
             formControlName="descripcion"
             class="form-control"
@@ -168,10 +168,26 @@
 
       <div class="d-flex gap-2 mt-3">
         @if (preventaEditando) {
-          <button class="btn btn-warning" (click)="guardarEdicion()">Guardar cambios</button>
-          <button class="btn btn-secondary" (click)="cancelarEdicion()">Cancelar</button>
+          <button
+            type="button"
+            class="btn btn-warning"
+            [disabled]="formulario.invalid"
+            (click)="guardarEdicion()"
+          >
+            Guardar cambios
+          </button>
+          <button type="button" class="btn btn-secondary" (click)="cancelarEdicion()">
+            Cancelar
+          </button>
         } @else {
-          <button class="btn btn-success" (click)="agregar()">Agregar preventa</button>
+          <button
+            type="button"
+            class="btn btn-success"
+            [disabled]="formulario.invalid"
+            (click)="agregar()"
+          >
+            Agregar preventa
+          </button>
         }
       </div>
     </form>

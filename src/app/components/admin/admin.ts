@@ -42,7 +42,7 @@ export class Admin implements OnInit {
     this.formulario = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
       precio: ['', [Validators.required, Validators.min(1)]],
-      precioOriginal: [0, [Validators.min(0)]],
+      precioOriginal: ['', [Validators.required, Validators.min(0)]],
       img: ['', Validators.required],
       descuento: [''],
       descripcion: ['', [Validators.required, Validators.minLength(10)]],

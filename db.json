@@ -129,6 +129,16 @@
       "descripcion": "juegos de cartas mitos y leyendas",
       "categoria": "carta",
       "id": "wxAsmC02X1k"
+    },
+    {
+      "nombre": "aaaa",
+      "precio": 111,
+      "precioOriginal": 1,
+      "img": "/img/carta-mitos.webp",
+      "descuento": "",
+      "descripcion": "aaa",
+      "categoria": "carta",
+      "id": "uRyjMXQEwDc"
     }
   ],
   "usuarios": [],
