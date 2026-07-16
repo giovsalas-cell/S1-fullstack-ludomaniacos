@@ -32,14 +32,14 @@ export class PreventasJsonServer implements OnInit {
     private preventasService: PreventasService,
   ) {
     this.formulario = this.fb.group({
-      nombre: ['', Validators.required],
-      precio: ['', Validators.required],
-      precioOriginal: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      precio: ['', [Validators.required, Validators.min(1)]],
+      precioOriginal: ['', [Validators.required, Validators.min(1)]],
       img: ['', Validators.required],
       descuento: [''],
-      descripcion: ['', Validators.required],
+      descripcion: ['', [Validators.required, Validators.minLength(10)]],
       fechaLanzamiento: ['', Validators.required],
-      unidades: ['', Validators.required],
+      unidades: ['', [Validators.required, Validators.min(1)]],
       disponible: [false],
     });
   }
@@ -52,9 +52,14 @@ export class PreventasJsonServer implements OnInit {
    * GET - Carga todas las preventas desde JSON Server
    */
   cargarPreventas() {
-    this.preventasService.getPreventas().subscribe((data) => {
-      console.log('Preventas:', data);
-      this.preventas.set(data);
+    this.preventasService.getPreventas().subscribe({
+      next: (data) => {
+        console.log('Preventas:', data);
+        this.preventas.set(data);
+      },
+      error: (err) => {
+        console.error('Error al cargar preventas:', err);
+      },
     });
   }
 
@@ -86,7 +91,11 @@ export class PreventasJsonServer implements OnInit {
    * PUT - Guarda los cambios de la preventa editada
    */
   guardarEdicion() {
-    if (this.formulario.invalid || !this.preventaEditando?.id) return;
+    if (this.formulario.invalid) {
+      this.formulario.markAllAsTouched();
+      return;
+    }
+    if (!this.preventaEditando?.id) return;
     this.preventasService
       .editarPreventa(this.preventaEditando.id, this.formulario.value)
       .subscribe(() => {

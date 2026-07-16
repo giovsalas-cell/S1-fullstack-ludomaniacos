@@ -14,27 +14,127 @@
       <div class="row g-3">
         <div class="col-12 col-md-6">
           <label class="form-label">Nombre</label>
-          <input type="text" formControlName="nombre" class="form-control" />
+          <input
+            type="text"
+            formControlName="nombre"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched
+            "
+          />
+          @if (
+            formulario.controls['nombre'].hasError('required') &&
+            formulario.controls['nombre'].touched
+          ) {
+            <div class="invalid-feedback d-block">El nombre es obligatorio.</div>
+          }
+          @if (
+            formulario.controls['nombre'].hasError('minlength') &&
+            formulario.controls['nombre'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos 2 caracteres.</div>
+          }
         </div>
         <div class="col-12 col-md-6">
           <label class="form-label">Fecha Lanzamiento</label>
-          <input type="date" formControlName="fechaLanzamiento" class="form-control" />
+          <input
+            type="date"
+            formControlName="fechaLanzamiento"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['fechaLanzamiento'].invalid &&
+              formulario.controls['fechaLanzamiento'].touched
+            "
+          />
+          @if (
+            formulario.controls['fechaLanzamiento'].invalid &&
+            formulario.controls['fechaLanzamiento'].touched
+          ) {
+            <div class="invalid-feedback d-block">La fecha de lanzamiento es obligatoria.</div>
+          }
         </div>
         <div class="col-12 col-md-4">
           <label class="form-label">Precio</label>
-          <input type="number" formControlName="precio" class="form-control" />
+          <input
+            type="number"
+            formControlName="precio"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['precio'].invalid && formulario.controls['precio'].touched
+            "
+          />
+          @if (
+            formulario.controls['precio'].hasError('required') &&
+            formulario.controls['precio'].touched
+          ) {
+            <div class="invalid-feedback d-block">Obligatorio.</div>
+          }
+          @if (
+            formulario.controls['precio'].hasError('min') && formulario.controls['precio'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe ser mayor a 0.</div>
+          }
         </div>
         <div class="col-12 col-md-4">
           <label class="form-label">Precio Original</label>
-          <input type="number" formControlName="precioOriginal" class="form-control" />
+          <input
+            type="number"
+            formControlName="precioOriginal"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['precioOriginal'].invalid &&
+              formulario.controls['precioOriginal'].touched
+            "
+          />
+          @if (
+            formulario.controls['precioOriginal'].hasError('required') &&
+            formulario.controls['precioOriginal'].touched
+          ) {
+            <div class="invalid-feedback d-block">Obligatorio.</div>
+          }
+          @if (
+            formulario.controls['precioOriginal'].hasError('min') &&
+            formulario.controls['precioOriginal'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe ser mayor a 0.</div>
+          }
         </div>
         <div class="col-12 col-md-4">
           <label class="form-label">Unidades</label>
-          <input type="number" formControlName="unidades" class="form-control" />
+          <input
+            type="number"
+            formControlName="unidades"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['unidades'].invalid && formulario.controls['unidades'].touched
+            "
+          />
+          @if (
+            formulario.controls['unidades'].hasError('required') &&
+            formulario.controls['unidades'].touched
+          ) {
+            <div class="invalid-feedback d-block">Obligatorio.</div>
+          }
+          @if (
+            formulario.controls['unidades'].hasError('min') &&
+            formulario.controls['unidades'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe ser al menos 1.</div>
+          }
         </div>
         <div class="col-12">
           <label class="form-label">URL Imagen</label>
-          <input type="text" formControlName="img" class="form-control" />
+          <input
+            type="text"
+            formControlName="img"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['img'].invalid && formulario.controls['img'].touched
+            "
+          />
+          @if (formulario.controls['img'].invalid && formulario.controls['img'].touched) {
+            <div class="invalid-feedback d-block">La imagen es obligatoria.</div>
+          }
         </div>
         <div class="col-12">
           <label class="form-label">Descuento</label>
@@ -42,7 +142,27 @@
         </div>
         <div class="col-12">
           <label class="form-label">Descripción</label>
-          <textarea formControlName="descripcion" class="form-control" rows="2"></textarea>
+          <textarea
+            formControlName="descripcion"
+            class="form-control"
+            rows="2"
+            [class.is-invalid]="
+              formulario.controls['descripcion'].invalid &&
+              formulario.controls['descripcion'].touched
+            "
+          ></textarea>
+          @if (
+            formulario.controls['descripcion'].hasError('required') &&
+            formulario.controls['descripcion'].touched
+          ) {
+            <div class="invalid-feedback d-block">La descripción es obligatoria.</div>
+          }
+          @if (
+            formulario.controls['descripcion'].hasError('minlength') &&
+            formulario.controls['descripcion'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos 10 caracteres.</div>
+          }
         </div>
       </div>
 

@@ -18,8 +18,17 @@
               formulario.controls['nombre'].valid && formulario.controls['nombre'].touched
             "
           />
-          @if (formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched) {
+          @if (
+            formulario.controls['nombre'].hasError('required') &&
+            formulario.controls['nombre'].touched
+          ) {
             <div class="invalid-feedback d-block">El nombre es obligatorio.</div>
+          }
+          @if (
+            formulario.controls['nombre'].hasError('minlength') &&
+            formulario.controls['nombre'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos 2 caracteres.</div>
           }
         </div>
 
@@ -43,7 +52,13 @@
             formulario.controls['nombreUsuario'].invalid &&
             formulario.controls['nombreUsuario'].touched
           ) {
-            <div class="invalid-feedback d-block">El nombre de usuario es obligatorio.</div>
+            <div class="invalid-feedback d-block">
+              @if (formulario.controls['nombreUsuario'].hasError('required')) {
+                El nombre de usuario es obligatorio.
+              } @else if (formulario.controls['nombreUsuario'].hasError('minlength')) {
+                Debe tener al menos 3 caracteres.
+              }
+            </div>
           }
         </div>
 

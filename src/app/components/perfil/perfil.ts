@@ -22,8 +22,8 @@ export class Perfil implements OnInit {
     private router: Router,
   ) {
     this.formulario = this.fb.group({
-      nombre: ['', Validators.required],
-      nombreUsuario: ['', Validators.required],
+      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      nombreUsuario: ['', [Validators.required, Validators.minLength(3)]],
       correo: ['', [Validators.required, Validators.email]],
       direccion: [''],
     });

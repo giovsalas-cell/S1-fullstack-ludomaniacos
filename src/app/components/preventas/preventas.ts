@@ -34,8 +34,13 @@ export class Preventas implements OnInit {
    * Carga las preventas desde GitHub Pages usando el servicio JSON
    */
   cargarPreventas() {
-    this.jsonService.getPreventas().subscribe((data: any[]) => {
-      this.preventas.set(data);
+    this.jsonService.getPreventas().subscribe({
+      next: (data: any[]) => {
+        this.preventas.set(data);
+      },
+      error: (err) => {
+        console.error('Error al cargar preventas:', err);
+      },
     });
   }
 
@@ -64,7 +69,7 @@ export class Preventas implements OnInit {
     ];
     localStorage.setItem(this.KEY, JSON.stringify(nuevasReservas));
     this.reservas.set(nuevasReservas);
-    alert('✅ Reserva realizada para ' + preventa.nombre);
+    alert(' Reserva realizada para ' + preventa.nombre);
   }
 
   /**

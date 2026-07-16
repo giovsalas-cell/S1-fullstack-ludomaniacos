@@ -40,12 +40,12 @@ export class Admin implements OnInit {
     private fb: FormBuilder,
   ) {
     this.formulario = this.fb.group({
-      nombre: ['', Validators.required],
-      precio: ['', Validators.required],
-      precioOriginal: [0],
+      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      precio: ['', [Validators.required, Validators.min(1)]],
+      precioOriginal: [0, [Validators.min(0)]],
       img: ['', Validators.required],
       descuento: [''],
-      descripcion: ['', Validators.required],
+      descripcion: ['', [Validators.required, Validators.minLength(10)]],
       categoria: ['', Validators.required],
     });
   }
@@ -107,7 +107,11 @@ export class Admin implements OnInit {
    * Requiere que haya un producto en edición con ID válido
    */
   guardarEdicion() {
-    if (this.formulario.invalid || !this.productoEditando?.id) return;
+    if (this.formulario.invalid) {
+      this.formulario.markAllAsTouched();
+      return;
+    }
+    if (!this.productoEditando?.id) return;
     this.productosService
       .editarProducto(this.productoEditando.id, this.formulario.value)
       .subscribe(() => {

@@ -20,29 +20,101 @@
       <div class="row g-3">
         <div class="col-12 col-md-6">
           <label class="form-label">Nombre</label>
-          <input type="text" formControlName="nombre" class="form-control" />
+          <input
+            type="text"
+            formControlName="nombre"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['nombre'].invalid && formulario.controls['nombre'].touched
+            "
+          />
+          @if (
+            formulario.controls['nombre'].hasError('required') &&
+            formulario.controls['nombre'].touched
+          ) {
+            <div class="invalid-feedback d-block">El nombre es obligatorio.</div>
+          }
+          @if (
+            formulario.controls['nombre'].hasError('minlength') &&
+            formulario.controls['nombre'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos 2 caracteres.</div>
+          }
         </div>
         <div class="col-12 col-md-6">
           <label class="form-label">Categoría</label>
-          <select formControlName="categoria" class="form-select">
+          <select
+            formControlName="categoria"
+            class="form-select"
+            [class.is-invalid]="
+              formulario.controls['categoria'].invalid && formulario.controls['categoria'].touched
+            "
+          >
             <option value="">Selecciona</option>
             <option value="carta">Carta</option>
             <option value="mesa">Mesa</option>
             <option value="rol">Rol</option>
             <option value="cooperativo">Cooperativo</option>
           </select>
+          @if (
+            formulario.controls['categoria'].invalid && formulario.controls['categoria'].touched
+          ) {
+            <div class="invalid-feedback d-block">Selecciona una categoría.</div>
+          }
         </div>
         <div class="col-12 col-md-6">
           <label class="form-label">Precio</label>
-          <input type="number" formControlName="precio" class="form-control" />
+          <input
+            type="number"
+            formControlName="precio"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['precio'].invalid && formulario.controls['precio'].touched
+            "
+          />
+          @if (
+            formulario.controls['precio'].hasError('required') &&
+            formulario.controls['precio'].touched
+          ) {
+            <div class="invalid-feedback d-block">El precio es obligatorio.</div>
+          }
+          @if (
+            formulario.controls['precio'].hasError('min') && formulario.controls['precio'].touched
+          ) {
+            <div class="invalid-feedback d-block">El precio debe ser mayor a 0.</div>
+          }
         </div>
         <div class="col-12 col-md-6">
           <label class="form-label">Precio Original (0 si no tiene descuento)</label>
-          <input type="number" formControlName="precioOriginal" class="form-control" />
+          <input
+            type="number"
+            formControlName="precioOriginal"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['precioOriginal'].invalid &&
+              formulario.controls['precioOriginal'].touched
+            "
+          />
+          @if (
+            formulario.controls['precioOriginal'].hasError('min') &&
+            formulario.controls['precioOriginal'].touched
+          ) {
+            <div class="invalid-feedback d-block">No puede ser negativo.</div>
+          }
         </div>
         <div class="col-12">
           <label class="form-label">URL Imagen</label>
-          <input type="text" formControlName="img" class="form-control" />
+          <input
+            type="text"
+            formControlName="img"
+            class="form-control"
+            [class.is-invalid]="
+              formulario.controls['img'].invalid && formulario.controls['img'].touched
+            "
+          />
+          @if (formulario.controls['img'].invalid && formulario.controls['img'].touched) {
+            <div class="invalid-feedback d-block">La imagen es obligatoria.</div>
+          }
         </div>
         <div class="col-12">
           <label class="form-label">Descuento (ej: -15% DESCUENTO)</label>
@@ -50,7 +122,27 @@
         </div>
         <div class="col-12">
           <label class="form-label">Descripción</label>
-          <textarea formControlName="descripcion" class="form-control" rows="2"></textarea>
+          <textarea
+            formControlName="descripcion"
+            class="form-control"
+            rows="2"
+            [class.is-invalid]="
+              formulario.controls['descripcion'].invalid &&
+              formulario.controls['descripcion'].touched
+            "
+          ></textarea>
+          @if (
+            formulario.controls['descripcion'].hasError('required') &&
+            formulario.controls['descripcion'].touched
+          ) {
+            <div class="invalid-feedback d-block">La descripción es obligatoria.</div>
+          }
+          @if (
+            formulario.controls['descripcion'].hasError('minlength') &&
+            formulario.controls['descripcion'].touched
+          ) {
+            <div class="invalid-feedback d-block">Debe tener al menos 10 caracteres.</div>
+          }
         </div>
       </div>
 
